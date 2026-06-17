@@ -1,27 +1,30 @@
-const CACHE_NAME = "cfc-na-palma-v3";
+```js
+const CACHE_NAME = "cfc-na-palma-v7";
 
 const FILES_TO_CACHE = [
   "./",
   "./index.html",
+  "./contabilidade-geral.html",
   "./manifest.json",
 
   "./auditoria.png",
-  "./pericia.png",
-  "./contabilidade-publica.png",
-  "./contabilidade-custos.png",
-  "./etica.png",
-  "./contabilidade-geral.png",
-  "./estatistica.png",
+  "./pericia_contabil.png",
+  "./contabilidade_publica.png",
+  "./contabilidade_de_custos.png",
+  "./ética_contábil.png",
+  "./contabilidade_geral.png",
+  "./estatística.png",
   "./direito.png",
-  "./matematica-financeira.png"
+  "./matematica_financeira.png",
+  "./icon-192.png",
+  "./icon-512.png"
 ];
 
 self.addEventListener("install", event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(cache => {
-        return cache.addAll(FILES_TO_CACHE);
-      })
+      .then(cache => cache.addAll(FILES_TO_CACHE))
+      .catch(error => console.log("Erro ao salvar cache:", error))
   );
 
   self.skipWaiting();
@@ -46,8 +49,7 @@ self.addEventListener("activate", event => {
 self.addEventListener("fetch", event => {
   event.respondWith(
     caches.match(event.request)
-      .then(response => {
-        return response || fetch(event.request);
-      })
+      .then(response => response || fetch(event.request))
   );
 });
+```
