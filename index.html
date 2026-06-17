@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -84,15 +85,17 @@ body{
   margin-bottom:9px;
 }
 
-. strong{
+.materia strong{
   font-size:14px;
+  line-height:1.15;
 }
 
-. small{
+.materia small{
   display:block;
   margin-top:5px;
   font-size:10.5px;
   color:#555;
+  line-height:1.25;
 }
 
 .em-breve::after{
@@ -106,52 +109,6 @@ body{
   font-weight:bold;
   padding:4px 24px;
   transform:rotate(35deg);
-}
-
-.modulo{
-  display:flex;
-  align-items:center;
-  gap:13px;
-  text-decoration:none;
-  background:white;
-  color:#003b8f;
-  padding:14px;
-  border-radius:20px;
-  margin-bottom:12px;
-  box-shadow:0 6px 18px rgba(0,0,0,.25);
-  font-weight:bold;
-}
-
-.modulo img{
-  width:52px;
-  height:52px;
-  border-radius:15px;
-  object-fit:cover;
-}
-
-.texto{flex:1;}
-
-.badge{
-  display:inline-block;
-  background:#e7f0ff;
-  color:#003b8f;
-  padding:4px 9px;
-  border-radius:999px;
-  font-size:10px;
-  margin-bottom:5px;
-}
-
-.titulo{
-  font-size:15px;
-  font-weight:bold;
-}
-
-.modulo small{
-  display:block;
-  margin-top:5px;
-  color:#555;
-  font-size:11.5px;
-  font-weight:normal;
 }
 
 .footer{
@@ -190,10 +147,10 @@ body{
   </a>
 
   <a class="materia em-breve" href="#">
-    <img src="contabilidade_de_custos.png">
-    <strong>Contabilidade de Custos</strong>
-    <small>Custeio e margem</small>
-</a>
+    <img src="contabilidade_publica.png">
+    <strong>Contabilidade Pública</strong>
+    <small>PCASP e setor público</small>
+  </a>
 
   <a class="materia em-breve" href="#">
     <img src="auditoria.png">
@@ -205,7 +162,7 @@ body{
     <img src="pericia_contabil.png">
     <strong>Perícia Contábil</strong>
     <small>NBC TP 01</small>
-</a>
+  </a>
 
   <a class="materia em-breve" href="#">
     <img src="direito.png">
@@ -213,11 +170,11 @@ body{
     <small>Direito para o CFC</small>
   </a>
 
-<a class="materia em-breve" href="#">
+  <a class="materia em-breve" href="#">
     <img src="ética_contábil.png">
     <strong>Ética Profissional</strong>
     <small>Código de ética</small>
-</a>
+  </a>
 
   <a class="materia em-breve" href="#">
     <img src="matematica_financeira.png">
@@ -233,55 +190,6 @@ body{
 
 </div>
 
-<div class="secao" id="contabilidade-geral">
-📘 Contabilidade Geral — CPC 00 (R2)
-</div>
-
-<a class="modulo" href="https://professormoreiracontabilidade-rgb.github.io/cpc00_quest-es_1_a_10/">
-  <img src="contabilidade-geral.png">
-  <div class="texto">
-    <span class="badge">CPC 00 (R2)</span>
-    <div class="titulo">Questões 01 a 10</div>
-    <small>Características qualitativas e conceitos iniciais</small>
-  </div>
-</a>
-
-<a class="modulo" href="https://professormoreiracontabilidade-rgb.github.io/cpc00_quest-es_11_a_20/">
-  <img src="contabilidade-geral.png">
-  <div class="texto">
-    <span class="badge">CPC 00 (R2)</span>
-    <div class="titulo">Questões 11 a 20</div>
-    <small>Compreensibilidade, neutralidade e continuidade</small>
-  </div>
-</a>
-
-<a class="modulo" href="https://professormoreiracontabilidade-rgb.github.io/cpc00_quest-es_21_a_30/">
-  <img src="contabilidade-geral.png">
-  <div class="texto">
-    <span class="badge">CPC 00 (R2)</span>
-    <div class="titulo">Questões 21 a 30</div>
-    <small>Usuários, elementos e características da informação</small>
-  </div>
-</a>
-
-<a class="modulo" href="https://professormoreiracontabilidade-rgb.github.io/cpc00_quest-es_31_a_40/">
-  <img src="contabilidade-geral.png">
-  <div class="texto">
-    <span class="badge">CPC 00 (R2)</span>
-    <div class="titulo">Questões 31 a 40</div>
-    <small>Relatório financeiro, ativos e passivos</small>
-  </div>
-</a>
-
-<a class="modulo" href="https://professormoreiracontabilidade-rgb.github.io/cpc00_quest-es_41a_50/">
-  <img src="contabilidade-geral.png">
-  <div class="texto">
-    <span class="badge">CPC 00 (R2)</span>
-    <div class="titulo">Questões 41 a 50</div>
-    <small>Revisão final do CPC 00</small>
-  </div>
-</a>
-
 <div class="footer">
 Curso de Contabilidade Professor Moreira<br>
 CFC na Palma da Mão
@@ -291,10 +199,11 @@ CFC na Palma da Mão
 
 <script>
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("./service-worker.js?v=5")
+  navigator.serviceWorker.register("./service-worker.js?v=6")
   .then(reg => { reg.update(); });
 }
 </script>
 
 </body>
 </html>
+```
