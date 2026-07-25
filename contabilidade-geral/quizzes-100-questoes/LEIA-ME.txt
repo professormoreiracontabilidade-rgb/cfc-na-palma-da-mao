@@ -1,0 +1,16 @@
+QUIZZES DE 100 QUESTÕES — PROFESSOR MOREIRA
+
+CONTEÚDO
+- index.html: índice geral dos 10 quizzes
+- quiz-01.html a quiz-10.html: 10 questões por quiz
+- assets/: aparência vermelha, pontuação, correção e progresso
+
+ESTRUTURA NO REPOSITÓRIO
+contabilidade-geral/quizzes-100-questoes/
+
+COMO PUBLICAR
+1. Copie a pasta completa quizzes-100-questoes para dentro de contabilidade-geral.
+2. Não retire nem renomeie os arquivos internos.
+3. No GitHub Desktop, faça Commit e Push Origin.
+
+O progresso é salvo no navegador do aluno.
