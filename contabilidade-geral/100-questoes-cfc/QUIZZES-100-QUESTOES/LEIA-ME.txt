@@ -1,0 +1,16 @@
+10 QUIZZES — 100 QUESTÕES COMENTADAS
+Curso de Contabilidade Professor Moreira
+
+CONTEÚDO
+- index.html: índice geral dos 10 quizzes
+- quiz-01.html a quiz-10.html: 10 questões por quiz
+- assets/: aparência, pontuação, correção e salvamento do progresso
+
+COMO COLOCAR NO GITHUB
+1. Copie a pasta inteira QUIZZES-100-QUESTOES para dentro do repositório CFC-QUESTOES.
+2. Não retire os arquivos da pasta.
+3. No GitHub Desktop, faça o commit e depois o push.
+4. O novo endereço será:
+   https://professormoreiracontabilidade-rgb.github.io/CFC-QUESTOES/QUIZZES-100-QUESTOES/
+
+O progresso é salvo no próprio navegador do aluno.

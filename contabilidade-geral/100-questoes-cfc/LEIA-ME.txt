@@ -1,0 +1,16 @@
+PACOTE — 100 QUESTÕES COMENTADAS
+CURSO DE CONTABILIDADE PROFESSOR MOREIRA
+
+1. Extraia todo o conteúdo do arquivo ZIP.
+2. Abra o arquivo index.html.
+3. Não altere os nomes das cinco subpastas.
+4. O material funciona sem internet.
+5. O progresso fica salvo no navegador e no aparelho utilizado.
+
+ESTRUTURA
+- index.html: índice geral das 100 questões.
+- questoes-01-20: primeiro bloco.
+- questoes-21-40: segundo bloco.
+- questoes-41-60: terceiro bloco.
+- questoes-61-80: quarto bloco.
+- questoes-81-100: quinto bloco.

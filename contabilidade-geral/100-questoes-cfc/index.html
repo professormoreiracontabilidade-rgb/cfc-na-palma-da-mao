@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#082a52">
+  <meta name="description" content="Índice geral das 100 questões comentadas do Curso de Contabilidade Professor Moreira.">
+  <title>100 Questões Comentadas — Professor Moreira</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --navy-950: #04172d;
+      --navy-900: #082a52;
+      --navy-800: #0b3b70;
+      --blue-100: #e9f3ff;
+      --blue-50: #f5f9ff;
+      --red-700: #b41026;
+      --red-600: #d51f36;
+      --red-500: #ed3c50;
+      --green-700: #147443;
+      --green-100: #e4f7ed;
+      --ink: #142033;
+      --muted: #607089;
+      --line: #d8e2ef;
+      --white: #ffffff;
+      --shadow: 0 18px 48px rgba(3, 31, 61, .13);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(52, 131, 224, .17), transparent 35rem),
+        linear-gradient(180deg, #edf5ff 0, #f8fbff 24rem, #f3f6fa 100%);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    button, input, a { font: inherit; }
+    a { color: inherit; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: max(24px, env(safe-area-inset-top)) 18px 72px;
+      color: var(--white);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, .08), transparent 55%),
+        linear-gradient(150deg, var(--navy-950), var(--navy-800));
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      right: -100px;
+      bottom: -160px;
+      border: 44px solid rgba(255,255,255,.07);
+      border-radius: 50%;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 960px);
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 30px;
+      color: #d9eaff;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 13px;
+      background: rgba(255,255,255,.11);
+      color: #fff;
+      font-size: .92rem;
+    }
+
+    h1 {
+      max-width: 780px;
+      margin: 0;
+      font-size: clamp(2rem, 8vw, 4.8rem);
+      line-height: .98;
+      letter-spacing: -.045em;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 20px 0 0;
+      color: #d4e5f9;
+      font-size: clamp(1rem, 2vw, 1.16rem);
+      line-height: 1.65;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .stat {
+      min-width: 116px;
+      padding: 12px 15px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 16px;
+      background: rgba(255,255,255,.09);
+      backdrop-filter: blur(8px);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.16rem;
+    }
+
+    .stat span {
+      color: #bed4ee;
+      font-size: .75rem;
+    }
+
+    main {
+      position: relative;
+      z-index: 2;
+      width: min(calc(100% - 24px), 960px);
+      margin: -44px auto 0;
+      padding-bottom: 56px;
+    }
+
+    .control-panel {
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,.85);
+      border-radius: 24px;
+      background: rgba(255,255,255,.96);
+      box-shadow: var(--shadow);
+    }
+
+    .progress-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+
+    .progress-head strong {
+      display: block;
+      color: var(--navy-900);
+      font-size: 1.05rem;
+    }
+
+    .progress-head span {
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .progress-track {
+      overflow: hidden;
+      height: 10px;
+      border-radius: 999px;
+      background: #dce8f5;
+    }
+
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #149655, #25bd70);
+      transition: width .35s ease;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      margin-top: 17px;
+    }
+
+    .search-wrap { position: relative; }
+
+    .search-wrap::before {
+      content: "⌕";
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      color: var(--navy-800);
+      font-size: 1.35rem;
+      transform: translateY(-52%);
+    }
+
+    #search {
+      width: 100%;
+      min-height: 50px;
+      padding: 0 16px 0 43px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      outline: none;
+      background: var(--blue-50);
+      color: var(--ink);
+    }
+
+    #search:focus {
+      border-color: #6da5df;
+      box-shadow: 0 0 0 4px rgba(39, 116, 196, .12);
+    }
+
+    .primary-btn,
+    .secondary-btn,
+    .block-link {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 15px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .primary-btn {
+      padding: 0 18px;
+      background: linear-gradient(135deg, var(--red-500), var(--red-700));
+      color: #fff;
+      box-shadow: 0 9px 20px rgba(192, 19, 44, .22);
+    }
+
+    .primary-btn:disabled {
+      cursor: not-allowed;
+      opacity: .48;
+      box-shadow: none;
+    }
+
+    .filters {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+      padding-bottom: 2px;
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+
+    .filter {
+      flex: 0 0 auto;
+      padding: 9px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--navy-900);
+      cursor: pointer;
+      font-size: .82rem;
+      font-weight: 800;
+    }
+
+    .filter.active {
+      border-color: var(--navy-900);
+      background: var(--navy-900);
+      color: #fff;
+    }
+
+    .blocks {
+      display: grid;
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .block {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.94);
+      box-shadow: 0 12px 32px rgba(12, 44, 78, .08);
+    }
+
+    .block-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 17px 18px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(110deg, var(--blue-50), #fff);
+    }
+
+    .block-kicker {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--red-600);
+      font-size: .7rem;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .block h2 {
+      margin: 0;
+      color: var(--navy-900);
+      font-size: 1.05rem;
+    }
+
+    .block-link {
+      min-height: 38px;
+      padding: 0 13px;
+      border: 1px solid #c9d9ea;
+      background: #fff;
+      color: var(--navy-900);
+      font-size: .76rem;
+    }
+
+    .question-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 9px;
+      padding: 17px;
+    }
+
+    .question-card {
+      position: relative;
+      display: grid;
+      min-height: 64px;
+      place-items: center;
+      border: 1px solid #cbdbea;
+      border-radius: 15px;
+      background: #fff;
+      color: var(--navy-900);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 900;
+      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+    }
+
+    .question-card:hover,
+    .question-card:focus-visible {
+      z-index: 1;
+      border-color: var(--red-500);
+      outline: none;
+      box-shadow: 0 8px 18px rgba(21, 55, 89, .13);
+      transform: translateY(-2px);
+    }
+
+    .question-card.completed {
+      border-color: #81cca4;
+      background: var(--green-100);
+      color: var(--green-700);
+    }
+
+    .question-card.completed::after {
+      content: "✓";
+      position: absolute;
+      top: 5px;
+      right: 7px;
+      font-size: .7rem;
+    }
+
+    .empty {
+      display: none;
+      padding: 36px 18px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .footer-actions {
+      display: flex;
+      justify-content: center;
+      margin-top: 22px;
+    }
+
+    .secondary-btn {
+      min-height: 44px;
+      padding: 0 17px;
+      border: 1px solid #cbd9e8;
+      background: #fff;
+      color: var(--navy-900);
+      font-size: .82rem;
+    }
+
+    .course-footer {
+      padding: 28px 16px calc(28px + env(safe-area-inset-bottom));
+      color: #748198;
+      text-align: center;
+      font-size: .78rem;
+    }
+
+    @media (max-width: 620px) {
+      .hero { padding-inline: 16px; }
+      .brand { margin-bottom: 24px; }
+      main { width: min(calc(100% - 20px), 960px); }
+      .control-panel { padding: 15px; border-radius: 21px; }
+      .actions { grid-template-columns: 1fr; }
+      .question-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 14px; }
+      .question-card { min-height: 58px; }
+      .block-header { align-items: flex-start; }
+      .block-link { min-height: 36px; }
+    }
+
+    @media (max-width: 360px) {
+      .question-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .hero-stats { display: grid; grid-template-columns: 1fr 1fr; }
+      .stat { min-width: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="brand">
+        <span class="brand-mark">PM</span>
+        Curso de Contabilidade Professor Moreira
+      </div>
+      <h1>100 questões comentadas</h1>
+      <p>Um único índice para acessar todos os exercícios, acompanhar o estudo e continuar exatamente do ponto em que você parou.</p>
+      <div class="hero-stats" aria-label="Resumo do material">
+        <div class="stat"><strong>100</strong><span>questões</span></div>
+        <div class="stat"><strong>5</strong><span>blocos organizados</span></div>
+        <div class="stat"><strong>CELULAR</strong><span>funciona no celular</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="control-panel" aria-label="Controles do índice">
+      <div class="progress-head">
+        <div>
+          <strong>Seu progresso</strong>
+          <span id="progressText">0 de 100 concluídas</span>
+        </div>
+        <strong id="progressPercent">0%</strong>
+      </div>
+      <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
+      <div class="actions">
+        <label class="search-wrap">
+          <span style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden">Pesquisar questão</span>
+          <input id="search" type="search" inputmode="numeric" placeholder="Pesquisar pelo número da questão">
+        </label>
+        <button class="primary-btn" id="continueBtn" type="button">Comece pela questão 1</button>
+      </div>
+
+      <div class="filters" aria-label="Filtrar questões">
+        <button class="filter active" type="button" data-filter="all">Todas</button>
+        <button class="filter" type="button" data-filter="open">Não concluídas</button>
+        <button class="filter" type="button" data-filter="done">Concluídas</button>
+        <button class="filter" type="button" data-filter="1">1–20</button>
+        <button class="filter" type="button" data-filter="2">21–40</button>
+        <button class="filter" type="button" data-filter="3">41–60</button>
+        <button class="filter" type="button" data-filter="4">61–80</button>
+        <button class="filter" type="button" data-filter="5">81–100</button>
+      </div>
+    </section>
+
+    <div class="blocks" id="blocks" aria-live="polite"></div>
+    <div class="empty" id="empty">Nenhuma questão encontrada com esse filtro.</div>
+
+    <div class="footer-actions">
+      <button class="secondary-btn" id="resetBtn" type="button">Limpar progresso das 100 questões</button>
+    </div>
+  </main>
+
+  <footer class="course-footer">Curso de Contabilidade Professor Moreira • Material para estudo</footer>
+
+  <script>
+    (() => {
+      const ranges = [
+        { start: 1, end: 20, folder: "questoes-01-20", padded: true },
+        { start: 21, end: 40, folder: "questoes-21-40" },
+        { start: 41, end: 60, folder: "questoes-41-60" },
+        { start: 61, end: 80, folder: "questoes-61-80" },
+        { start: 81, end: 100, folder: "questoes-81-100" }
+      ];
+
+      const storage = {
+        get(key) { try { return localStorage.getItem(key); } catch { return null; } },
+        set(key, value) { try { localStorage.setItem(key, value); } catch {} },
+        remove(key) { try { localStorage.removeItem(key); } catch {} }
+      };
+
+      const hrefFor = (number) => {
+        const range = ranges.find(item => number >= item.start && number <= item.end);
+        const filename = range.padded && number < 10 ? `questao-0${number}.html` : `questao-${number}.html`;
+        return `${range.folder}/${filename}`;
+      };
+
+      const blocksRoot = document.getElementById("blocks");
+      const empty = document.getElementById("empty");
+      const search = document.getElementById("search");
+      const continueBtn = document.getElementById("continueBtn");
+      const resetBtn = document.getElementById("resetBtn");
+      let activeFilter = "all";
+
+      ranges.forEach((range, blockIndex) => {
+        const section = document.createElement("section");
+        section.className = "block";
+        section.dataset.block = String(blockIndex + 1);
+        section.innerHTML = `
+          <header class="block-header">
+            <div>
+              <span class="block-kicker">Bloco ${blockIndex + 1}</span>
+              <h2>Questões ${range.start} a ${range.end}</h2>
+            </div>
+            <a class="block-link" href="${range.folder}/index.html">Índice do bloco</a>
+          </header>
+          <div class="question-grid"></div>
+        `;
+
+        const grid = section.querySelector(".question-grid");
+        for (let number = range.start; number <= range.end; number += 1) {
+          const card = document.createElement("a");
+          card.className = "question-card";
+          card.href = hrefFor(number);
+          card.dataset.number = String(number);
+          card.dataset.block = String(blockIndex + 1);
+          card.setAttribute("aria-label", `Abrir questão ${number}`);
+          card.textContent = number;
+          card.addEventListener("click", () => storage.set("pm_last_question", String(number)));
+          grid.appendChild(card);
+        }
+        blocksRoot.appendChild(section);
+      });
+
+      const cards = [...document.querySelectorAll(".question-card")];
+      const blocks = [...document.querySelectorAll(".block")];
+
+      function refreshProgress() {
+        let completed = 0;
+        cards.forEach(card => {
+          const done = storage.get(`pm_question_${card.dataset.number}_completed`) === "1";
+          card.classList.toggle("completed", done);
+          if (done) completed += 1;
+        });
+
+        const percent = completed;
+        document.getElementById("progressText").textContent = `${completed} de 100 concluídas`;
+        document.getElementById("progressPercent").textContent = `${percent}%`;
+        document.getElementById("progressBar").style.width = `${percent}%`;
+        document.querySelector(".progress-track").setAttribute("aria-valuenow", String(percent));
+
+        const last = Number(storage.get("pm_last_question"));
+        continueBtn.textContent = last >= 1 && last <= 100
+          ? `Continuar na questão ${last}`
+          : "Comece pela questão 1";
+        applyFilter();
+      }
+
+      function applyFilter() {
+        const query = search.value.replace(/\D/g, "");
+        let visibleTotal = 0;
+
+        cards.forEach(card => {
+          const number = card.dataset.number;
+          const done = card.classList.contains("completed");
+          const blockMatch = !/^[1-5]$/.test(activeFilter) || card.dataset.block === activeFilter;
+          const statusMatch = activeFilter !== "done" && activeFilter !== "open"
+            ? true
+            : activeFilter === "done" ? done : !done;
+          const searchMatch = !query || number.includes(query);
+          const visible = blockMatch && statusMatch && searchMatch;
+          card.hidden = !visible;
+          if (visible) visibleTotal += 1;
+        });
+
+        blocks.forEach(block => {
+          block.hidden = ![...block.querySelectorAll(".question-card")].some(card => !card.hidden);
+        });
+        empty.style.display = visibleTotal ? "none" : "block";
+      }
+
+      search.addEventListener("input", applyFilter);
+
+      document.querySelectorAll(".filter").forEach(button => {
+        button.addEventListener("click", () => {
+          activeFilter = button.dataset.filter;
+          document.querySelectorAll(".filter").forEach(item => item.classList.toggle("active", item === button));
+          applyFilter();
+        });
+      });
+
+      continueBtn.addEventListener("click", () => {
+        const last = Number(storage.get("pm_last_question"));
+        const number = last >= 1 && last <= 100 ? last : 1;
+        location.href = hrefFor(number);
+      });
+
+      resetBtn.addEventListener("click", () => {
+        if (!confirm("Deseja apagar o progresso registrado das 100 questões?")) return;
+        for (let number = 1; number <= 100; number += 1) {
+          storage.remove(`pm_question_${number}_completed`);
+        }
+        storage.remove("pm_last_question");
+        refreshProgress();
+      });
+
+      window.addEventListener("pageshow", refreshProgress);
+      window.addEventListener("focus", refreshProgress);
+      refreshProgress();
+    })();
+  </script>
+</body>
+</html>
