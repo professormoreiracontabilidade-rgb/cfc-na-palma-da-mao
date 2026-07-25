@@ -6,16 +6,104 @@
 <title>Contabilidade Geral | CFC na Palma da Mão</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#061b35,#0c2f5f);color:#fff}
-.container{max-width:430px;margin:auto;padding:15px;min-height:100vh}
-.topo{background:linear-gradient(135deg,#001f4d,#003b8f,#0057d9);padding:22px;border-radius:25px;text-align:center;margin-bottom:18px;box-shadow:0 8px 20px rgba(0,0,0,.30)}
-.topo h1{margin:0;font-size:28px}.topo p{margin:8px 0 0;font-size:14px}
-.card{background:#fff;color:#111;padding:20px;border-radius:24px;margin-bottom:14px;box-shadow:0 7px 20px rgba(0,0,0,.28);border-left:8px solid #18a558}
-.selo{display:inline-block;background:#e8f7ef;color:#0b7540;font-size:11px;font-weight:bold;padding:6px 10px;border-radius:999px;margin-bottom:10px}
-.card h2{margin:0 0 8px;font-size:22px;color:#092a52}.card p{margin:0 0 8px;color:#555;line-height:1.45}.dados{font-size:14px;color:#374151;margin:10px 0 16px;line-height:1.6}
-.abrir{display:block;text-decoration:none;text-align:center;background:linear-gradient(135deg,#003b8f,#0067d9);color:#fff;font-weight:bold;font-size:17px;padding:16px;border-radius:16px;box-shadow:0 5px 12px rgba(0,59,143,.28)}
-.voltar{display:block;background:#fff;color:#003b8f;text-decoration:none;padding:16px;border-radius:18px;text-align:center;font-weight:bold;margin-top:15px}
-.footer{text-align:center;font-size:12px;margin-top:20px;font-weight:bold}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(180deg,#061b35,#0c2f5f);
+  color:#fff
+}
+.container{
+  max-width:430px;
+  margin:auto;
+  padding:15px;
+  min-height:100vh
+}
+.topo{
+  background:linear-gradient(135deg,#001f4d,#003b8f,#0057d9);
+  padding:22px;
+  border-radius:25px;
+  text-align:center;
+  margin-bottom:18px;
+  box-shadow:0 8px 20px rgba(0,0,0,.30)
+}
+.topo h1{margin:0;font-size:28px}
+.topo p{margin:8px 0 0;font-size:14px}
+
+.card{
+  background:#fff;
+  color:#111;
+  padding:20px;
+  border-radius:24px;
+  margin-bottom:14px;
+  box-shadow:0 7px 20px rgba(0,0,0,.28)
+}
+.card-estudo{border-left:8px solid #18a558}
+.card-quiz{border-left:8px solid #d62828}
+
+.selo{
+  display:inline-block;
+  font-size:11px;
+  font-weight:bold;
+  padding:6px 10px;
+  border-radius:999px;
+  margin-bottom:10px
+}
+.selo-estudo{background:#e8f7ef;color:#0b7540}
+.selo-quiz{background:#ffe8e8;color:#a20f0f}
+
+.card h2{
+  margin:0 0 8px;
+  font-size:22px;
+  color:#092a52
+}
+.card p{
+  margin:0 0 8px;
+  color:#555;
+  line-height:1.45
+}
+.dados{
+  font-size:14px;
+  color:#374151;
+  margin:10px 0 16px;
+  line-height:1.6
+}
+.abrir{
+  display:block;
+  text-decoration:none;
+  text-align:center;
+  color:#fff;
+  font-weight:bold;
+  font-size:17px;
+  padding:16px;
+  border-radius:16px
+}
+.abrir-estudo{
+  background:linear-gradient(135deg,#003b8f,#0067d9);
+  box-shadow:0 5px 12px rgba(0,59,143,.28)
+}
+.abrir-quiz{
+  background:linear-gradient(135deg,#8b0000,#d62828);
+  box-shadow:0 5px 12px rgba(180,0,0,.28)
+}
+.abrir:active{transform:scale(.98)}
+
+.voltar{
+  display:block;
+  background:#fff;
+  color:#003b8f;
+  text-decoration:none;
+  padding:16px;
+  border-radius:18px;
+  text-align:center;
+  font-weight:bold;
+  margin-top:15px
+}
+.footer{
+  text-align:center;
+  font-size:12px;
+  margin-top:20px;
+  font-weight:bold
+}
 </style>
 </head>
 <body>
@@ -25,12 +113,32 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(
     <p>CFC na Palma da Mão</p>
   </div>
 
-  <section class="card">
-    <span class="selo">1º CONTEÚDO</span>
+  <section class="card card-estudo">
+    <span class="selo selo-estudo">1º CONTEÚDO</span>
     <h2>100 Questões Comentadas — CFC</h2>
     <p>Treinamento completo de Contabilidade Geral para o Exame de Suficiência.</p>
-    <div class="dados">📝 100 questões individuais<br>🎯 10 quizzes com 10 questões<br>📱 Estudo otimizado para celular</div>
-    <a class="abrir" href="contabilidade-geral/100-questoes-cfc/index.html">📚 ESTUDAR AGORA</a>
+    <div class="dados">
+      📝 100 questões individuais<br>
+      📚 Respostas comentadas<br>
+      📱 Estudo otimizado para celular
+    </div>
+    <a class="abrir abrir-estudo" href="contabilidade-geral/100-questoes-cfc/index.html">
+      📚 ESTUDAR AGORA
+    </a>
+  </section>
+
+  <section class="card card-quiz">
+    <span class="selo selo-quiz">2º CONTEÚDO</span>
+    <h2>10 Quizzes — 100 Questões</h2>
+    <p>Treine em blocos de 10 questões, acompanhe seu progresso e revise as respostas comentadas.</p>
+    <div class="dados">
+      🎯 10 quizzes com 10 questões<br>
+      📊 Progresso salvo no navegador<br>
+      🏆 Pontuação e resultado final
+    </div>
+    <a class="abrir abrir-quiz" href="contabilidade-geral/quizzes-100-questoes/index.html">
+      📝 INICIAR QUIZZES
+    </a>
   </section>
 
   <a class="voltar" href="index.html">⬅️ Voltar para o início</a>
