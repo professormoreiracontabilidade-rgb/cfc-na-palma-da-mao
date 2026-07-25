@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Flashcards Professor Moreira</title>
+<style>
+:root {
+  --azul:#071b3a;
+  --azul2:#0b2d5c;
+  --dourado:#ffd166;
+  --branco:#ffffff;
+  --cinza:#eaf0f8;
+  --verde:#1fbf75;
+  --vermelho:#ff5c5c;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(160deg, var(--azul), #020817);
+  color: var(--branco);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+.app {
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  padding:14px;
+}
+.home-link {
+  align-self:flex-start;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin-bottom:4px;
+  padding:9px 13px;
+  border-radius:999px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,209,102,.55);
+  color:var(--dourado);
+  text-decoration:none;
+  font-size:13px;
+  font-weight:900;
+}
+.header {
+  text-align:center;
+  padding:12px 8px 6px;
+}
+.header h1 {
+  margin:0;
+  font-size:21px;
+  letter-spacing:.5px;
+  color:var(--dourado);
+  text-transform:uppercase;
+}
+.header h2 {
+  margin:5px 0 0;
+  font-size:15px;
+  font-weight:800;
+}
+.badge {
+  display:inline-block;
+  margin-top:8px;
+  padding:7px 12px;
+  border-radius:999px;
+  background:rgba(255,209,102,.14);
+  border:1px solid rgba(255,209,102,.55);
+  color:var(--dourado);
+  font-weight:800;
+  font-size:12px;
+  text-transform:uppercase;
+}
+.progress-area {
+  margin:10px 0 12px;
+}
+.counter {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:13px;
+  color:#d7e5ff;
+  margin-bottom:6px;
+}
+.progress {
+  height:10px;
+  background:rgba(255,255,255,.15);
+  border-radius:999px;
+  overflow:hidden;
+}
+.bar {
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg, var(--dourado), #fff2b5);
+  border-radius:999px;
+  transition:.25s;
+}
+.stage {
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  perspective:1000px;
+  padding:8px 0 14px;
+}
+.card {
+  width:100%;
+  max-width:520px;
+  min-height:390px;
+  position:relative;
+  transform-style:preserve-3d;
+  transition:transform .55s ease;
+}
+.card.flipped {
+  transform:rotateY(180deg);
+}
+.face {
+  position:absolute;
+  inset:0;
+  border-radius:26px;
+  padding:26px 20px;
+  backface-visibility:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,.35);
+  border:2px solid rgba(255,255,255,.16);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  text-align:center;
+}
+.front {
+  background:linear-gradient(155deg, #0d3b78, #071b3a 72%);
+}
+.back {
+  background:linear-gradient(155deg, #123c2b, #061c16 72%);
+  transform:rotateY(180deg);
+}
+.label {
+  position:absolute;
+  top:16px;
+  left:16px;
+  padding:7px 10px;
+  border-radius:12px;
+  background:rgba(255,255,255,.12);
+  font-weight:900;
+  font-size:12px;
+  color:var(--dourado);
+  text-transform:uppercase;
+}
+.text {
+  font-size:25px;
+  line-height:1.28;
+  font-weight:900;
+  text-wrap:balance;
+}
+.back .text {
+  font-size:26px;
+  color:#eafff4;
+}
+.hint {
+  position:absolute;
+  bottom:18px;
+  left:20px;
+  right:20px;
+  font-size:13px;
+  opacity:.8;
+}
+.controls {
+  max-width:520px;
+  width:100%;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1.2fr 1fr;
+  gap:9px;
+  padding-bottom:8px;
+}
+button {
+  border:none;
+  border-radius:16px;
+  padding:15px 10px;
+  font-size:15px;
+  font-weight:900;
+  color:#061024;
+  background:var(--dourado);
+  box-shadow:0 8px 18px rgba(0,0,0,.25);
+}
+button:active { transform:scale(.98); }
+.secondary {
+  background:#dbe7ff;
+}
+.restart {
+  background:#ffb4b4;
+}
+.footer-actions {
+  max-width:520px;
+  width:100%;
+  margin:4px auto 0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+}
+.smallbtn {
+  padding:12px 8px;
+  font-size:13px;
+}
+.scorebox {
+  max-width:520px;
+  width:100%;
+  margin:10px auto 0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+.score {
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:14px;
+  padding:10px;
+  text-align:center;
+  font-weight:900;
+}
+.score span {
+  display:block;
+  font-size:11px;
+  color:#bfd2ff;
+  margin-bottom:3px;
+  text-transform:uppercase;
+}
+.start {
+  position:fixed;
+  inset:0;
+  z-index:10;
+  background:linear-gradient(160deg,#071b3a,#020817);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+.start-card {
+  width:100%;
+  max-width:520px;
+  background:rgba(255,255,255,.08);
+  border:2px solid rgba(255,209,102,.45);
+  border-radius:28px;
+  padding:24px 18px;
+  text-align:center;
+  box-shadow:0 18px 60px rgba(0,0,0,.45);
+}
+.start-card h1 {
+  margin:0;
+  color:var(--dourado);
+  font-size:25px;
+  text-transform:uppercase;
+}
+.start-card h2 {
+  margin:7px 0 14px;
+  font-size:18px;
+}
+.start-card p {
+  font-size:17px;
+  line-height:1.35;
+  color:#eef5ff;
+}
+.start-card input {
+  width:100%;
+  margin:8px 0;
+  padding:15px;
+  border-radius:15px;
+  border:2px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.92);
+  font-size:16px;
+  font-weight:700;
+}
+.whatsapp {
+  margin-top:10px;
+  width:100%;
+  background:#25d366;
+  color:#03130a;
+}
+.error {
+  color:#ffb4b4;
+  font-weight:800;
+  min-height:22px;
+  margin-top:8px;
+}
+@media (max-width:420px) {
+  .text { font-size:22px; }
+  .back .text { font-size:23px; }
+  .card { min-height:370px; }
+  .controls { grid-template-columns:1fr 1fr 1fr; }
+  button { font-size:14px; padding:14px 6px; }
+}
+</style>
+</head>
+<body>
+<div class="start" id="start">
+  <div class="start-card">
+    <h1>Curso de Contabilidade</h1>
+    <h2>Professor Moreira</h2>
+    <div class="badge">Flashcards — Reforma Tributária</div>
+    <p><strong>LEIA! PRATIQUE E CONTINUE...</strong><br>Toque no cartão para virar e conferir a resposta.</p>
+    <input id="nome" placeholder="Digite seu nome">
+    <input id="whats" placeholder="Digite seu WhatsApp">
+    <button class="whatsapp" onclick="entrar()">Enviar WhatsApp e iniciar</button>
+    <div class="error" id="erro"></div>
+  </div>
+</div>
+
+<div class="app">
+  <a class="home-link" href="index.html">← Voltar ao início</a>
+  <div class="header">
+    <h1>Professor Moreira</h1>
+    <h2>Flashcards de Fixação</h2>
+    <div class="badge">Treinamento Pesado</div>
+  </div>
+
+  <div class="progress-area">
+    <div class="counter">
+      <strong id="cardNum">Card 1 de 54</strong>
+      <strong id="percent">0%</strong>
+    </div>
+    <div class="progress"><div class="bar" id="bar"></div></div>
+  </div>
+
+  <div class="stage">
+    <div class="card" id="card" onclick="virar()">
+      <div class="face front">
+        <div class="label">Pergunta</div>
+        <div class="text" id="frontText"></div>
+        <div class="hint">Toque para ver a resposta</div>
+      </div>
+      <div class="face back">
+        <div class="label">Resposta</div>
+        <div class="text" id="backText"></div>
+        <div class="hint">Toque para voltar</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button class="secondary" onclick="voltar()">◀ Voltar</button>
+    <button onclick="virar()">Virar</button>
+    <button class="secondary" onclick="avancar()">Avançar ▶</button>
+  </div>
+
+  <div class="footer-actions">
+    <button class="smallbtn restart" onclick="reiniciar()">↻ Reiniciar</button>
+    <button class="smallbtn" onclick="continuar()">Continuar</button>
+  </div>
+
+  <div class="scorebox">
+    <div class="score"><span>Estudados</span><b id="estudados">0</b></div>
+    <div class="score"><span>Total</span><b id="totalCards">54</b></div>
+  </div>
+</div>
+
+<script>
+const cards = [{"front": "Qual é o principal objetivo da Reforma Tributária em relação aos tributos sobre o consumo?", "back": "Simplificar o sistema tributário e reduzir a burocracia."}, {"front": "A Reforma Tributária visa combater a _____, que ocorre quando entes federados disputam empresas através de benefícios fiscais desordenados.", "back": "Guerra fiscal"}, {"front": "Explique o conceito de regressividade fiscal que a reforma pretende reduzir.", "back": "É quando o peso dos impostos é proporcionalmente maior para quem ganha menos."}, {"front": "O sistema tributário nacional deve observar o princípio da _____, que busca facilitar o entendimento e cumprimento das obrigações pelo contribuinte.", "back": "Simplicidade"}, {"front": "Qual princípio da reforma visa garantir que todos os contribuintes tenham o mesmo nível de acesso às informações tributárias?", "back": "Princípio da transparência."}, {"front": "O princípio da _____ busca reduzir o impacto tributário sobre os mais pobres para tornar o sistema mais equilibrado.", "back": "Justiça tributária"}, {"front": "Por que o princípio da cooperação é importante na Reforma Tributária?", "back": "Para evitar conflitos de competência e disputas entre Estados e Municípios."}, {"front": "Qual princípio da reforma justifica a tributação mais alta sobre produtos poluentes ou incentivos a carros elétricos?", "back": "Princípio da defesa do meio ambiente."}, {"front": "O IBS (Imposto sobre Bens e Serviços) é de competência compartilhada entre quais entes?", "back": "Estados, Distrito Federal e Municípios."}, {"front": "Qual espécie normativa é necessária para instituir o IBS e o CBS?", "back": "Lei Complementar."}, {"front": "O IBS substituirá quais tributos atuais?", "back": "ICMS (Estadual) e ISS (Municipal)."}, {"front": "O que determina o princípio da neutralidade no IBS?", "back": "O imposto deve interferir o mínimo possível nas decisões econômicas e na livre concorrência."}, {"front": "Sobre quais tipos de ativos o IBS incide?", "back": "Bens (materiais e imateriais), direitos e serviços."}, {"front": "As exportações sofrem incidência de IBS?", "back": "Não, as exportações são imunes para incentivar o mercado interno."}, {"front": "Em relação à localização, o IBS será cobrado no estado/município de _____ da operação.", "back": "Destino"}, {"front": "Como funciona a fixação de alíquotas do IBS?", "back": "Cada ente federado fixa sua própria alíquota por lei específica, mas a legislação é única e uniforme."}, {"front": "O que acontece se um Município não fixar sua alíquota própria de IBS?", "back": "Será aplicada a alíquota de referência fixada pelo Senado Federal."}, {"front": "A característica de compensar o imposto pago em etapas anteriores é chamada de _____.", "back": "Não cumulatividade"}, {"front": "O IBS integrará sua própria base de cálculo (cálculo 'por dentro')?", "back": "Não, o IBS não integrará sua própria base de cálculo nem a de outros tributos como o CBS."}, {"front": "O que é o mecanismo de 'Cashback' previsto na reforma?", "back": "É a devolução de parte do imposto pago para determinados grupos de contribuintes."}, {"front": "Para quais itens o 'Cashback' de tributos é obrigatório segundo a Emenda Constitucional 132?", "back": "Energia elétrica e gás de cozinha para consumidores de baixa renda."}, {"front": "Qual órgão será responsável por arrecadar, regulamentar e distribuir o produto do IBS?", "back": "Comitê Gestor do IBS."}, {"front": "A CBS (Contribuição sobre Bens e Serviços) é de competência exclusiva de qual ente?", "back": "União."}, {"front": "Qual órgão administra a arrecadação e fiscalização da CBS?", "back": "Receita Federal do Brasil."}, {"front": "A CBS substituirá quais tributos federais?", "back": "PIS e COFINS."}, {"front": "O termo 'IVA Dual' refere-se à composição de quais dois novos tributos?", "back": "IBS (subnacional) e CBS (federal)."}, {"front": "Embora a CBS seja instituída por Lei Complementar, suas alíquotas podem ser fixadas por _____.", "back": "Lei Ordinária"}, {"front": "Qual é a finalidade principal do Imposto Seletivo (IS)?", "back": "Desestimular o consumo de bens e serviços prejudiciais à saúde ou ao meio ambiente."}, {"front": "O Imposto Seletivo (IS) é comumente apelidado de _____.", "back": "Imposto do pecado"}, {"front": "Dê exemplos de produtos que podem sofrer incidência do Imposto Seletivo.", "back": "Cigarros, bebidas alcoólicas e defensivos agrícolas."}, {"front": "O Imposto Seletivo pode incidir sobre exportações?", "back": "Não, ele incide apenas na produção, extração, comercialização ou importação."}, {"front": "O Imposto Seletivo é de competência de qual ente federado?", "back": "União."}, {"front": "O que acontecerá com o IPI (Imposto sobre Produtos Industrializados) a partir de 2027?", "back": "Suas alíquotas serão reduzidas a zero, exceto para produtos que tenham industrialização na Zona Franca de Manaus."}, {"front": "O Imposto Seletivo e o IPI podem incidir cumulativamente sobre o mesmo produto?", "back": "Não, a incidência de um veda a do outro sobre o mesmo item."}, {"front": "Quais novos tipos de veículos passaram a ser tributados pelo IPVA?", "back": "Veículos aquáticos (barcos/lanchas) e aéreos (aviões/jatinhos)."}, {"front": "O IPVA poderá ter alíquotas progressivas com base em quais critérios novos?", "back": "Valor do veículo e impacto ambiental (ex: carros elétricos vs. combustão)."}, {"front": "Qual alteração a reforma trouxe para a progressividade do ITCMD?", "back": "A progressividade em razão do valor da herança ou doação tornou-se obrigatória."}, {"front": "No caso de bens móveis, o ITCMD passará a ser devido ao estado onde o falecido era _____.", "back": "Domiciliado"}, {"front": "A Reforma Tributária permite a cobrança de ITCMD sobre heranças e doações de bens localizados no exterior?", "back": "Sim, a reforma trouxe regras para essa cobrança enquanto não editada lei complementar específica."}, {"front": "Qual será a alíquota de IBS e CBS sobre os itens da Cesta Básica Nacional de Alimentos?", "back": "Alíquota reduzida a zero."}, {"front": "O que acontecerá no ano de 2026 em relação à transição tributária?", "back": "Será um período de teste com alíquotas simbólicas (0,1% IBS e 0,9% CBS) compensáveis com PIS/COFINS."}, {"front": "Em que ano o PIS e a COFINS serão totalmente extintos e substituídos pela CBS?", "back": "2027."}, {"front": "Como será a transição do ICMS e ISS para o IBS entre 2029 e 2032?", "back": "Haverá uma substituição gradual, reduzindo as alíquotas antigas e aumentando as do IBS proporcionalmente."}, {"front": "Em qual ano o antigo sistema (ICMS/ISS) deixará de existir completamente?", "back": "2033."}, {"front": "A administração do IBS é feita de forma integrada pelos entes através do _____.", "back": "Comitê Gestor"}, {"front": "O IBS incide sobre importações de bens e serviços?", "back": "Sim, para garantir igualdade com o produto nacional."}, {"front": "Por que a reforma incluiu o princípio da Defesa do Meio Ambiente?", "back": "Para permitir que a tributação seja usada como ferramenta de incentivo a práticas sustentáveis."}, {"front": "O Comitê Gestor do IBS possui independência técnica e financeira?", "back": "Sim, é uma entidade pública sob regime especial com autonomia administrativa e orçamentária."}, {"front": "Como a reforma tributária afeta o princípio da essencialidade?", "back": "Através da redução de alíquotas para bens essenciais (cesta básica) e aumento para supérfluos/nocivos (imposto seletivo)."}, {"front": "A legislação do IBS será uniforme em todo o território nacional?", "back": "Sim, haverá uma lei única para as normas gerais, exceto para a definição da alíquota de cada ente."}, {"front": "O ITCMD é o imposto que incide sobre _____.", "back": "Transmissão 'causa mortis' (herança) e doações."}, {"front": "A Zona Franca de Manaus manterá seus incentivos diferenciados após a reforma?", "back": "Sim, inclusive através da manutenção do IPI para produtos lá fabricados por outros entes."}, {"front": "O objetivo de reduzir o número de leis tributárias refere-se ao princípio da _____.", "back": "Simplicidade"}, {"front": "A cobrança no destino favorece quais estados/municípios?", "back": "Os entes que são grandes centros consumidores, em vez dos centros produtores."}];
+let atual = parseInt(localStorage.getItem('pm_flash_atual') || '0', 10);
+let estudados = parseInt(localStorage.getItem('pm_flash_estudados') || '0', 10);
+let flipped = false;
+
+const card = document.getElementById('card');
+const frontText = document.getElementById('frontText');
+const backText = document.getElementById('backText');
+const cardNum = document.getElementById('cardNum');
+const percent = document.getElementById('percent');
+const bar = document.getElementById('bar');
+const estudadosEl = document.getElementById('estudados');
+const totalCards = document.getElementById('totalCards');
+
+totalCards.textContent = cards.length;
+
+function salvar() {
+  localStorage.setItem('pm_flash_atual', atual);
+  localStorage.setItem('pm_flash_estudados', estudados);
+}
+
+function render() {
+  if (atual < 0) atual = 0;
+  if (atual >= cards.length) atual = cards.length - 1;
+  flipped = false;
+  card.classList.remove('flipped');
+  frontText.textContent = cards[atual].front;
+  backText.textContent = cards[atual].back;
+  cardNum.textContent = `Card ${atual + 1} de ${cards.length}`;
+  const pct = Math.round(((atual + 1) / cards.length) * 100);
+  percent.textContent = pct + '%';
+  bar.style.width = pct + '%';
+  estudadosEl.textContent = estudados;
+  salvar();
+}
+
+function virar() {
+  flipped = !flipped;
+  card.classList.toggle('flipped', flipped);
+}
+
+function avancar() {
+  if (estudados < atual + 1) estudados = atual + 1;
+  if (atual < cards.length - 1) {
+    atual++;
+    render();
+  } else {
+    alert('Parabéns! Você concluiu todos os flashcards.');
+  }
+}
+
+function voltar() {
+  if (atual > 0) {
+    atual--;
+    render();
+  }
+}
+
+function reiniciar() {
+  atual = 0;
+  estudados = 0;
+  render();
+}
+
+function continuar() {
+  render();
+}
+
+function entrar() {
+  const nome = document.getElementById('nome').value.trim();
+  const whats = document.getElementById('whats').value.trim();
+  const erro = document.getElementById('erro');
+  if (!nome || !whats) {
+    erro.textContent = 'Preencha nome e WhatsApp para iniciar.';
+    return;
+  }
+  const msg = encodeURIComponent(`Professor Moreira, iniciei os flashcards de Reforma Tributária. Nome: ${nome} | WhatsApp: ${whats}`);
+  window.open(`https://wa.me/5561985323574?text=${msg}`, '_blank');
+  localStorage.setItem('pm_flash_liberado', 'sim');
+  document.getElementById('start').style.display = 'none';
+}
+
+if (localStorage.getItem('pm_flash_liberado') === 'sim') {
+  document.getElementById('start').style.display = 'none';
+}
+render();
+</script>
+</body>
+</html>

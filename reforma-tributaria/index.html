@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#052e16">
+  <title>Flashcards e Quizzes - Reforma Tributária</title>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#052e16,#15803d 55%,#02140a);color:#fff;min-height:100vh}
+    .wrap{max-width:820px;margin:auto;padding:22px 14px 34px}
+    .head{text-align:center;background:linear-gradient(135deg,#052e16,#166534);border:3px solid #facc15;border-radius:26px;padding:24px 18px;box-shadow:0 12px 35px #0008}
+    .head h1{margin:0;font-size:26px;line-height:1.2;text-transform:uppercase}
+    .head h2{color:#fef08a;font-size:20px;margin:12px 0 6px;text-transform:uppercase}
+    .head p{margin:0;color:#dcfce7;font-size:16px;font-weight:700}
+    .total{display:inline-block;margin-top:14px;background:#facc15;color:#052e16;border-radius:999px;padding:9px 15px;font-weight:900}
+    .section-title{margin:24px 2px 12px;font-size:19px;line-height:1.25;text-transform:uppercase;color:#fef08a;text-align:center}
+    .flashcard{display:grid;grid-template-columns:78px 1fr;gap:16px;align-items:center;text-decoration:none;background:linear-gradient(135deg,#071b3a,#0d3b78);color:#fff;border:3px solid #ffd166;border-radius:24px;padding:20px;box-shadow:0 10px 26px #0007;transition:transform .15s,box-shadow .15s}
+    .flashcard:hover,.flashcard:focus{transform:translateY(-2px);box-shadow:0 14px 32px #0008;outline:none}
+    .flash-icon{display:flex;align-items:center;justify-content:center;width:78px;height:78px;border-radius:22px;background:linear-gradient(135deg,#ffd166,#facc15);color:#071b3a;font-size:38px;box-shadow:inset 0 0 0 2px #fff8}
+    .flash-label{display:block;color:#ffd166;font-size:22px;font-weight:900;text-transform:uppercase}
+    .flash-meta{display:block;margin-top:6px;color:#eaf0f8;font-size:15px;font-weight:700;line-height:1.35}
+    .flash-button{display:inline-block;margin-top:11px;background:#fff;color:#071b3a;border-radius:999px;padding:8px 13px;font-size:13px;font-weight:900}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:20px}
+    .quiz{display:grid;grid-template-columns:58px 1fr;grid-template-rows:auto auto;column-gap:12px;align-items:center;text-decoration:none;background:#fff;color:#14532d;border:3px solid #86efac;border-radius:21px;padding:16px;box-shadow:0 8px 20px #0005;transition:transform .15s,border-color .15s}
+    .quiz:hover,.quiz:focus{transform:translateY(-2px);border-color:#facc15;outline:none}
+    .number{grid-row:1/3;display:flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:18px;background:linear-gradient(135deg,#15803d,#22c55e);color:#fff;font-size:22px;font-weight:900}
+    .label{font-weight:900;font-size:19px;align-self:end}
+    .meta{color:#15803d;font-size:14px;font-weight:800;align-self:start;margin-top:4px}
+    .footer{text-align:center;margin-top:22px;font-weight:800;color:#dcfce7;line-height:1.5}
+    @media(max-width:560px){.grid{grid-template-columns:1fr}.head h1{font-size:21px}.head h2{font-size:18px}.flashcard{grid-template-columns:66px 1fr;padding:17px;gap:13px}.flash-icon{width:66px;height:66px;font-size:32px}.flash-label{font-size:19px}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="head">
+      <h1>Curso de Contabilidade Professor Moreira</h1>
+      <h2>Reforma Tributária</h2>
+      <p>EC 132/2023 • LC 214/2025</p>
+      <div class="total">54 flashcards • 25 quizzes • 250 questões</div>
+    </header>
+    <section aria-labelledby="titulo-flashcards">
+      <h3 class="section-title" id="titulo-flashcards">Primeiro: revise com os flashcards</h3>
+      <a class="flashcard" href="flashcards_professor_moreira_reforma_tributaria.html">
+        <span class="flash-icon" aria-hidden="true">🗂️</span>
+        <span>
+          <span class="flash-label">Flashcards da Reforma Tributária</span>
+          <span class="flash-meta">54 cartões com perguntas e respostas para revisar IBS, CBS, Imposto Seletivo, ITCMD e transição tributária.</span>
+          <span class="flash-button">ABRIR FLASHCARDS →</span>
+        </span>
+      </a>
+    </section>
+    <h3 class="section-title" id="titulo-quizzes">Depois: treine com os quizzes</h3>
+    <nav class="grid" aria-labelledby="titulo-quizzes">
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_1.html"><span class="number">01</span><span class="label">QUIZ 1</span><span class="meta">Bloco 1 • 10 questões</span></a>
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_2.html"><span class="number">02</span><span class="label">QUIZ 2</span><span class="meta">Bloco 2 • 10 questões</span></a>
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_3.html"><span class="number">03</span><span class="label">QUIZ 3</span><span class="meta">Bloco 3 • 10 questões</span></a>
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_4.html"><span class="number">04</span><span class="label">QUIZ 4</span><span class="meta">Bloco 4 • 10 questões</span></a>
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_5.html"><span class="number">05</span><span class="label">QUIZ 5</span><span class="meta">Bloco 5 • 10 questões</span></a>
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_6.html"><span class="number">06</span><span class="label">QUIZ 6</span><span class="meta">Bloco 6 • 10 questões</span></a>
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_7.html"><span class="number">07</span><span class="label">QUIZ 7</span><span class="meta">Bloco 7 • 10 questões</span></a>
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_8.html"><span class="number">08</span><span class="label">QUIZ 8</span><span class="meta">Bloco 8 • 10 questões</span></a>
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_9.html"><span class="number">09</span><span class="label">QUIZ 9</span><span class="meta">Bloco 9 • 10 questões</span></a>
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_10.html"><span class="number">10</span><span class="label">QUIZ 10</span><span class="meta">Bloco 10 • 10 questões</span></a>
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_11.html"><span class="number">11</span><span class="label">QUIZ 11</span><span class="meta">Bloco 11 • 10 questões</span></a>
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_12.html"><span class="number">12</span><span class="label">QUIZ 12</span><span class="meta">Bloco 12 • 10 questões</span></a>
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_13.html"><span class="number">13</span><span class="label">QUIZ 13</span><span class="meta">Bloco 13 • 10 questões</span></a>
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_14.html"><span class="number">14</span><span class="label">QUIZ 14</span><span class="meta">Bloco 14 • 10 questões</span></a>
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_15.html"><span class="number">15</span><span class="label">QUIZ 15</span><span class="meta">Bloco 15 • 10 questões</span></a>
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_16.html"><span class="number">16</span><span class="label">QUIZ 16</span><span class="meta">Bloco 16 • 10 questões</span></a>
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_17.html"><span class="number">17</span><span class="label">QUIZ 17</span><span class="meta">Bloco 17 • 10 questões</span></a>
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_18.html"><span class="number">18</span><span class="label">QUIZ 18</span><span class="meta">Bloco 18 • 10 questões</span></a>
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_19.html"><span class="number">19</span><span class="label">QUIZ 19</span><span class="meta">Bloco 19 • 10 questões</span></a>
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_20.html"><span class="number">20</span><span class="label">QUIZ 20</span><span class="meta">Bloco 20 • 10 questões</span></a>
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_21.html"><span class="number">21</span><span class="label">QUIZ 21</span><span class="meta">Bloco 21 • 10 questões</span></a>
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_22.html"><span class="number">22</span><span class="label">QUIZ 22</span><span class="meta">Bloco 22 • 10 questões</span></a>
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_23.html"><span class="number">23</span><span class="label">QUIZ 23</span><span class="meta">Bloco 23 • 10 questões</span></a>
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_24.html"><span class="number">24</span><span class="label">QUIZ 24</span><span class="meta">Bloco 24 • 10 questões</span></a>
+        <a class="quiz" href="quiz_reforma_tributaria_bloco_25.html"><span class="number">25</span><span class="label">QUIZ 25</span><span class="meta">Bloco 25 • 10 questões</span></a>
+    </nav>
+    <footer class="footer">Curso de Contabilidade Professor Moreira<br>WhatsApp 61 985323574</footer>
+  </main>
+</body>
+</html>
