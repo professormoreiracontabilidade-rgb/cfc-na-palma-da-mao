@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#003b8f">
+  <title>Contabilidade Pública | CFC na Palma da Mão</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #061b35, #0c2f5f);
+      color: #fff;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 430px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 14px;
+    }
+
+    .voltar {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 12px;
+      padding: 10px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .header {
+      padding: 22px 18px;
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      border-radius: 28px;
+      background: linear-gradient(135deg, #001f4d, #003b8f, #0057d9);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.32);
+      text-align: center;
+    }
+
+    .header img {
+      width: 78px;
+      height: 78px;
+      object-fit: cover;
+      border: 4px solid rgba(255, 255, 255, 0.72);
+      border-radius: 22px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+    }
+
+    .header h1 {
+      margin: 12px 0 4px;
+      font-size: 24px;
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+
+    .header p {
+      margin: 0;
+      color: #dbeafe;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .contador {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #facc15;
+      color: #17335a;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .secao {
+      margin: 20px 2px 12px;
+      color: #bfdbfe;
+      font-size: 14px;
+      font-weight: 900;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .essenciais {
+      display: grid;
+      gap: 12px;
+    }
+
+    .material {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 13px;
+      align-items: center;
+      min-height: 105px;
+      padding: 15px;
+      border: 3px solid #bbf7d0;
+      border-radius: 22px;
+      background: #fff;
+      color: #14532d;
+      text-decoration: none;
+      box-shadow: 0 7px 18px rgba(0, 0, 0, 0.27);
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    .material:hover,
+    .material:focus {
+      transform: translateY(-2px);
+      border-color: #facc15;
+      outline: none;
+    }
+
+    .icone {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #15803d, #22c55e);
+      font-size: 28px;
+      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.42);
+    }
+
+    .material strong {
+      display: block;
+      font-size: 17px;
+      line-height: 1.18;
+    }
+
+    .material small {
+      display: block;
+      margin-top: 6px;
+      color: #64748b;
+      font-size: 12px;
+      line-height: 1.3;
+    }
+
+    .abrir {
+      display: inline-block;
+      margin-top: 7px;
+      color: #15803d;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .blocos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .bloco {
+      display: flex;
+      min-height: 140px;
+      padding: 15px 10px;
+      border: 3px solid #bfdbfe;
+      border-radius: 22px;
+      background: #fff;
+      color: #003b8f;
+      text-decoration: none;
+      box-shadow: 0 7px 18px rgba(0, 0, 0, 0.27);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    .bloco:hover,
+    .bloco:focus {
+      transform: translateY(-2px);
+      border-color: #facc15;
+      outline: none;
+    }
+
+    .numero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 54px;
+      height: 54px;
+      margin-bottom: 10px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #003b8f, #2563eb);
+      color: #fff;
+      font-size: 21px;
+      font-weight: 900;
+    }
+
+    .bloco strong {
+      font-size: 15px;
+      line-height: 1.18;
+    }
+
+    .bloco small {
+      display: block;
+      margin-top: 5px;
+      color: #64748b;
+      font-size: 10.5px;
+    }
+
+    .footer {
+      padding: 22px 8px 10px;
+      color: #dbeafe;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    @media (max-width: 360px) {
+      .blocos {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <a class="voltar" href="index.html">← Voltar ao início</a>
+
+    <header class="header">
+      <img src="contabilidade_publica.png" alt="Contabilidade Pública">
+      <h1>Contabilidade Pública</h1>
+      <p>Curso de Contabilidade Professor Moreira</p>
+      <span class="contador">19 materiais de estudo</span>
+    </header>
+
+    <div class="secao">Conteúdos essenciais</div>
+
+    <nav class="essenciais" aria-label="Conteúdos essenciais de Contabilidade Pública">
+      <a class="material" href="https://professormoreiracontabilidade-rgb.github.io/Principios-orcamentarios/">
+        <span class="icone" aria-hidden="true">🏛️</span>
+        <span>
+          <strong>Princípios Orçamentários</strong>
+          <small>Fundamentos aplicáveis ao orçamento público.</small>
+          <span class="abrir">ACESSAR CONTEÚDO →</span>
+        </span>
+      </a>
+
+      <a class="material" href="https://professormoreiracontabilidade-rgb.github.io/RECEITAS-ORCAMENTARIAS/">
+        <span class="icone" aria-hidden="true">💰</span>
+        <span>
+          <strong>Receitas Orçamentárias</strong>
+          <small>Classificação e estágios da receita pública.</small>
+          <span class="abrir">ACESSAR CONTEÚDO →</span>
+        </span>
+      </a>
+
+      <a class="material" href="https://professormoreiracontabilidade-rgb.github.io/Receitas_e_Despesas_Publicas/">
+        <span class="icone" aria-hidden="true">📊</span>
+        <span>
+          <strong>Receitas e Despesas Públicas</strong>
+          <small>Estudo integrado das receitas e despesas públicas.</small>
+          <span class="abrir">ACESSAR CONTEÚDO →</span>
+        </span>
+      </a>
+
+      <a class="material" href="https://professormoreiracontabilidade-rgb.github.io/pcasp-contabilidade-publica/">
+        <span class="icone" aria-hidden="true">🧾</span>
+        <span>
+          <strong>PCASP</strong>
+          <small>Plano de Contas Aplicado ao Setor Público.</small>
+          <span class="abrir">ACESSAR CONTEÚDO →</span>
+        </span>
+      </a>
+
+      <a class="material" href="https://professormoreiracontabilidade-rgb.github.io/DCASP_CONTPUBLICA/">
+        <span class="icone" aria-hidden="true">📑</span>
+        <span>
+          <strong>DCASP</strong>
+          <small>Demonstrações Contábeis Aplicadas ao Setor Público.</small>
+          <span class="abrir">ACESSAR CONTEÚDO →</span>
+        </span>
+      </a>
+    </nav>
+
+    <div class="secao">Blocos de Contabilidade Pública</div>
+
+    <nav class="blocos" aria-label="Blocos de Contabilidade Pública">
+      <a class="bloco" href="https://professormoreiracontabilidade-rgb.github.io/contabilpublica/">
+        <span class="numero">1</span>
+        <strong>Contabilidade Pública 1</strong>
+        <small>Acessar bloco</small>
+      </a>
+
+      <a class="bloco" href="https://professormoreiracontabilidade-rgb.github.io/contab-publica-bp/">
+        <span class="numero">2</span>
+        <strong>Contabilidade Pública 2</strong>
+        <small>Acessar bloco</small>
+      </a>
+
+      <a class="bloco" href="https://professormoreiracontabilidade-rgb.github.io/Contpublica/">
+        <span class="numero">3</span>
+        <strong>Contabilidade Pública 3</strong>
+        <small>Acessar bloco</small>
+      </a>
+
+      <a class="bloco" href="https://professormoreiracontabilidade-rgb.github.io/ContabilidadePublica5/">
+        <span class="numero">4</span>
+        <strong>Contabilidade Pública 4</strong>
+        <small>Acessar bloco</small>
+      </a>
+
+      <a class="bloco" href="https://professormoreiracontabilidade-rgb.github.io/contabilidadepublicaq5/">
+        <span class="numero">5</span>
+        <strong>Contabilidade Pública 5</strong>
+        <small>Acessar bloco</small>
+      </a>
+
+      <a class="bloco" href="https://professormoreiracontabilidade-rgb.github.io/ContabilidadePublica6/">
+        <span class="numero">6</span>
+        <strong>Contabilidade Pública 6</strong>
+        <small>Acessar bloco</small>
+      </a>
+
+      <a class="bloco" href="https://professormoreiracontabilidade-rgb.github.io/ContabilidadePublica7/">
+        <span class="numero">7</span>
+        <strong>Contabilidade Pública 7</strong>
+        <small>Acessar bloco</small>
+      </a>
+
+      <a class="bloco" href="https://professormoreiracontabilidade-rgb.github.io/ContabilidadePublica8/">
+        <span class="numero">8</span>
+        <strong>Contabilidade Pública 8</strong>
+        <small>Acessar bloco</small>
+      </a>
+
+      <a class="bloco" href="https://professormoreiracontabilidade-rgb.github.io/ContabilidadePublica9/">
+        <span class="numero">9</span>
+        <strong>Contabilidade Pública 9</strong>
+        <small>Acessar bloco</small>
+      </a>
+
+      <a class="bloco" href="https://professormoreiracontabilidade-rgb.github.io/ContabilidadePublica10/">
+        <span class="numero">10</span>
+        <strong>Contabilidade Pública 10</strong>
+        <small>Acessar bloco</small>
+      </a>
+
+      <a class="bloco" href="https://professormoreiracontabilidade-rgb.github.io/ContabilidadePublica11/">
+        <span class="numero">11</span>
+        <strong>Contabilidade Pública 11</strong>
+        <small>Acessar bloco</small>
+      </a>
+
+      <a class="bloco" href="https://professormoreiracontabilidade-rgb.github.io/ContabilidadePublica12/">
+        <span class="numero">12</span>
+        <strong>Contabilidade Pública 12</strong>
+        <small>Acessar bloco</small>
+      </a>
+
+      <a class="bloco" href="https://professormoreiracontabilidade-rgb.github.io/Fepese---Contabilidade-Publica/">
+        <span class="numero">13</span>
+        <strong>Contabilidade Pública 13</strong>
+        <small>Acessar bloco</small>
+      </a>
+
+      <a class="bloco" href="https://professormoreiracontabilidade-rgb.github.io/contabilidade_publica_IR_DEDUCOES/">
+        <span class="numero">14</span>
+        <strong>Contabilidade Pública 14</strong>
+        <small>Acessar bloco</small>
+      </a>
+    </nav>
+
+    <footer class="footer">
+      Curso de Contabilidade Professor Moreira<br>
+      CFC na Palma da Mão
+    </footer>
+  </main>
+</body>
+</html>
