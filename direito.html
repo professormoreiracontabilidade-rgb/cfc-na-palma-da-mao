@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#003b8f">
+  <title>Direito | CFC na Palma da Mão</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #061b35, #0c2f5f);
+      color: #fff;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 430px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 14px;
+    }
+
+    .voltar {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 12px;
+      padding: 10px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .header {
+      padding: 22px 18px;
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      border-radius: 28px;
+      background: linear-gradient(135deg, #001f4d, #003b8f, #0057d9);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.32);
+      text-align: center;
+    }
+
+    .header img {
+      width: 78px;
+      height: 78px;
+      object-fit: cover;
+      border: 4px solid rgba(255, 255, 255, 0.72);
+      border-radius: 22px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+    }
+
+    .header h1 {
+      margin: 12px 0 4px;
+      font-size: 23px;
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+
+    .header p {
+      margin: 0;
+      color: #dbeafe;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .secao {
+      margin: 20px 2px 12px;
+      color: #bfdbfe;
+      font-size: 14px;
+      font-weight: 900;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .apostilas {
+      display: grid;
+      gap: 12px;
+    }
+
+    .apostila {
+      display: grid;
+      grid-template-columns: 66px 1fr;
+      gap: 14px;
+      align-items: center;
+      min-height: 125px;
+      padding: 17px;
+      border: 3px solid #facc15;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #fff7cc, #fff);
+      color: #17335a;
+      text-decoration: none;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3);
+      transition: transform 0.15s ease;
+    }
+
+    .apostila:hover,
+    .apostila:focus {
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .livro {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 66px;
+      height: 66px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #facc15, #f59e0b);
+      font-size: 33px;
+      box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.55);
+    }
+
+    .apostila strong {
+      display: block;
+      font-size: 17px;
+      line-height: 1.2;
+    }
+
+    .apostila small {
+      display: block;
+      margin-top: 6px;
+      color: #475569;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .abrir {
+      display: inline-block;
+      margin-top: 8px;
+      color: #9a3412;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .materiais {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .material {
+      display: flex;
+      min-height: 155px;
+      padding: 15px 10px;
+      border: 3px solid #bae6fd;
+      border-radius: 22px;
+      background: #fff;
+      color: #0c4a6e;
+      text-decoration: none;
+      box-shadow: 0 7px 18px rgba(0, 0, 0, 0.27);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    .material:hover,
+    .material:focus {
+      transform: translateY(-2px);
+      border-color: #facc15;
+      outline: none;
+    }
+
+    .material.largo {
+      grid-column: 1 / -1;
+      min-height: 135px;
+    }
+
+    .icone {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 58px;
+      height: 58px;
+      margin-bottom: 10px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #0369a1, #0ea5e9);
+      color: #fff;
+      font-size: 27px;
+      font-weight: 900;
+    }
+
+    .material strong {
+      font-size: 15px;
+      line-height: 1.2;
+    }
+
+    .material small {
+      display: block;
+      margin-top: 6px;
+      color: #64748b;
+      font-size: 11px;
+      line-height: 1.25;
+    }
+
+    .footer {
+      padding: 22px 8px 10px;
+      color: #dbeafe;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    @media (max-width: 360px) {
+      .materiais {
+        grid-template-columns: 1fr;
+      }
+
+      .material.largo {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <a class="voltar" href="index.html">← Voltar ao início</a>
+
+    <header class="header">
+      <img src="direito.png" alt="Direito">
+      <h1>Direito</h1>
+      <p>Curso de Contabilidade Professor Moreira</p>
+    </header>
+
+    <div class="secao">Apostilas</div>
+
+    <section class="apostilas" aria-label="Apostilas de Direito">
+      <a class="apostila" href="https://professormoreiracontabilidade-rgb.github.io/Apostila-de-Direito-Tributario/">
+        <span class="livro" aria-hidden="true">📘</span>
+        <span>
+          <strong>Apostila de Direito Tributário</strong>
+          <small>Material completo para estudo e consulta.</small>
+          <span class="abrir">ABRIR A APOSTILA →</span>
+        </span>
+      </a>
+
+      <a class="apostila" href="https://professormoreiracontabilidade-rgb.github.io/Apostila-de-Direito-Administrativo/">
+        <span class="livro" aria-hidden="true">📙</span>
+        <span>
+          <strong>Apostila de Direito Administrativo</strong>
+          <small>Material completo para estudo e consulta.</small>
+          <span class="abrir">ABRIR A APOSTILA →</span>
+        </span>
+      </a>
+    </section>
+
+    <div class="secao">Trilhas e questões</div>
+
+    <nav class="materiais" aria-label="Trilhas e questões de Direito">
+      <a class="material" href="https://professormoreiracontabilidade-rgb.github.io/Direito-Tributario/">
+        <span class="icone" aria-hidden="true">🧭</span>
+        <strong>Super Trilha de Direito Tributário</strong>
+        <small>Aprendizagem guiada</small>
+      </a>
+
+      <a class="material" href="https://professormoreiracontabilidade-rgb.github.io/quizzes---Direito-Tributario/">
+        <span class="icone" aria-hidden="true">100</span>
+        <strong>Direito Tributário</strong>
+        <small>100 questões</small>
+      </a>
+
+      <a class="material" href="https://professormoreiracontabilidade-rgb.github.io/DIREITO-CONSTITUCIONAL/">
+        <span class="icone" aria-hidden="true">⚖️</span>
+        <strong>Trilha de Direito Constitucional</strong>
+        <small>Estudo direcionado</small>
+      </a>
+
+      <a class="material" href="https://professormoreiracontabilidade-rgb.github.io/dIREITO-cIVIL/">
+        <span class="icone" aria-hidden="true">📜</span>
+        <strong>Direito Civil</strong>
+        <small>Revisão e treinamento</small>
+      </a>
+
+      <a class="material largo" href="https://professormoreiracontabilidade-rgb.github.io/direito_celular/">
+        <span class="icone" aria-hidden="true">🏆</span>
+        <strong>Questões Anteriores do Exame de Suficiência</strong>
+        <small>Treine com questões já aplicadas no exame</small>
+      </a>
+    </nav>
+
+    <footer class="footer">
+      Professor Moreira<br>
+      CFC na Palma da Mão
+    </footer>
+  </main>
+</body>
+</html>
