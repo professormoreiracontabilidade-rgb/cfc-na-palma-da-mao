@@ -113,12 +113,15 @@ btnRecuperar.addEventListener('click', async () => {
       'E-mail de recuperação enviado. Verifique também a caixa de spam.',
       'sucesso'
     );
-  } catch (erro) {
-    console.error('Código do erro:', erro.code);
-    console.error('Mensagem do erro:', erro.message);
+} catch (erro) {
+    alert(
+      "Código: " + erro.code + "\n\nMensagem: " + erro.message
+    );
+
+    console.error(erro);
 
     mostrarMensagem(traduzirErro(erro.code));
-  } finally {
+} finally {
     btnRecuperar.disabled = false;
     btnRecuperar.textContent = 'Esqueci minha senha';
   }
