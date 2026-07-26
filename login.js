@@ -26,7 +26,7 @@ function traduzirErro(codigo) {
 auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(() => {});
 
 auth.onAuthStateChanged(user => {
-  if (user) window.location.replace('./app.html');
+  if (user) window.location.replace('./index.html');
 });
 
 form.addEventListener('submit', async event => {
