@@ -1,8 +1,5 @@
-// Importa o Firebase
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-
-// Configuração do Firebase
+// Configuração pública do Firebase do projeto CFC na Palma da Mão.
+// Este arquivo identifica o projeto; a segurança depende das regras e do Firebase Authentication.
 const firebaseConfig = {
   apiKey: "AIzaSyA-wspl20od5LstQ8oPHVwddw7_W2mjHn8",
   authDomain: "cfc-na-palma-da-mao.firebaseapp.com",
@@ -13,11 +10,6 @@ const firebaseConfig = {
   measurementId: "G-J9TJBQTZEC"
 };
 
-// Inicializa o Firebase
-const app = initializeApp(firebaseConfig);
-
-// Inicializa a autenticação
-const auth = getAuth(app);
-
-// Exporta para os outros arquivos
-export { auth };
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
