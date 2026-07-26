@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#003b8f">
+  <title>Contabilidade de Custos | CFC na Palma da Mão</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #061b35, #0c2f5f);
+      color: #fff;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 430px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 14px;
+    }
+
+    .voltar {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 12px;
+      padding: 10px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .header {
+      padding: 22px 18px;
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      border-radius: 28px;
+      background: linear-gradient(135deg, #001f4d, #003b8f, #0057d9);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.32);
+      text-align: center;
+    }
+
+    .header img {
+      width: 78px;
+      height: 78px;
+      object-fit: cover;
+      border: 4px solid rgba(255, 255, 255, 0.72);
+      border-radius: 22px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+    }
+
+    .header h1 {
+      margin: 12px 0 4px;
+      font-size: 23px;
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+
+    .header p {
+      margin: 0;
+      color: #dbeafe;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .secao {
+      margin: 20px 2px 12px;
+      color: #bfdbfe;
+      font-size: 14px;
+      font-weight: 900;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .apostila {
+      display: grid;
+      grid-template-columns: 76px 1fr;
+      gap: 15px;
+      align-items: center;
+      min-height: 145px;
+      padding: 19px;
+      border: 3px solid #facc15;
+      border-radius: 25px;
+      background: linear-gradient(135deg, #fff7cc, #fff);
+      color: #17335a;
+      text-decoration: none;
+      box-shadow: 0 9px 24px rgba(0, 0, 0, 0.32);
+      transition: transform 0.15s ease;
+    }
+
+    .apostila:hover,
+    .apostila:focus {
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .livro {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 76px;
+      height: 76px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #facc15, #f59e0b);
+      font-size: 38px;
+      box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.55);
+    }
+
+    .apostila strong {
+      display: block;
+      font-size: 19px;
+      line-height: 1.18;
+    }
+
+    .apostila small {
+      display: block;
+      margin-top: 7px;
+      color: #475569;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .abrir {
+      display: inline-block;
+      margin-top: 10px;
+      color: #9f1239;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .quizzes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .quiz {
+      display: flex;
+      min-height: 145px;
+      padding: 15px 10px;
+      border: 3px solid #fecdd3;
+      border-radius: 22px;
+      background: #fff;
+      color: #881337;
+      text-decoration: none;
+      box-shadow: 0 7px 18px rgba(0, 0, 0, 0.27);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    .quiz:hover,
+    .quiz:focus {
+      transform: translateY(-2px);
+      border-color: #facc15;
+      outline: none;
+    }
+
+    .numero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 55px;
+      height: 55px;
+      margin-bottom: 10px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #9f1239, #e11d48);
+      color: #fff;
+      font-size: 23px;
+      font-weight: 900;
+    }
+
+    .quiz strong {
+      font-size: 16px;
+      line-height: 1.15;
+    }
+
+    .quiz small {
+      display: block;
+      margin-top: 5px;
+      color: #64748b;
+      font-size: 11px;
+    }
+
+    .footer {
+      padding: 22px 8px 10px;
+      color: #dbeafe;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    @media (max-width: 360px) {
+      .quizzes {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <a class="voltar" href="index.html">← Voltar ao início</a>
+
+    <header class="header">
+      <img src="contabilidade_de_custos.png" alt="Contabilidade de Custos">
+      <h1>Contabilidade de Custos</h1>
+      <p>Curso de Contabilidade Professor Moreira</p>
+    </header>
+
+    <div class="secao">Material de estudo</div>
+
+    <a class="apostila" href="https://professormoreiracontabilidade-rgb.github.io/Apostila-de-Contabilidade-de-Custos/">
+      <span class="livro" aria-hidden="true">📘</span>
+      <span>
+        <strong>Apostila Completa de Contabilidade de Custos</strong>
+        <small>Material completo em formato A4 para leitura e consulta.</small>
+        <span class="abrir">ABRIR A APOSTILA →</span>
+      </span>
+    </a>
+
+    <div class="secao">Quizzes de Contabilidade de Custos</div>
+
+    <nav class="quizzes" aria-label="Quizzes de Contabilidade de Custos">
+      <a class="quiz" href="https://professormoreiracontabilidade-rgb.github.io/Contabilidade-de-Custos---quiz-1/">
+        <span class="numero">1</span>
+        <strong>Quiz de Custos 1</strong>
+        <small>Acessar treinamento</small>
+      </a>
+
+      <a class="quiz" href="https://professormoreiracontabilidade-rgb.github.io/Contabilidade-de-Custos----quiz2/">
+        <span class="numero">2</span>
+        <strong>Quiz de Custos 2</strong>
+        <small>Acessar treinamento</small>
+      </a>
+
+      <a class="quiz" href="https://professormoreiracontabilidade-rgb.github.io/Contabilidade-de-Custos-------Quizz-3/">
+        <span class="numero">3</span>
+        <strong>Quiz de Custos 3</strong>
+        <small>Acessar treinamento</small>
+      </a>
+
+      <a class="quiz" href="https://professormoreiracontabilidade-rgb.github.io/Contabilidade-de-Custos---quizz-4/">
+        <span class="numero">4</span>
+        <strong>Quiz de Custos 4</strong>
+        <small>Acessar treinamento</small>
+      </a>
+
+      <a class="quiz" href="https://professormoreiracontabilidade-rgb.github.io/Contabilidade-de-custos---quizz-5/">
+        <span class="numero">5</span>
+        <strong>Quiz de Custos 5</strong>
+        <small>Acessar treinamento</small>
+      </a>
+    </nav>
+
+    <footer class="footer">
+      Curso de Contabilidade Professor Moreira<br>
+      CFC na Palma da Mão
+    </footer>
+  </main>
+</body>
+</html>
