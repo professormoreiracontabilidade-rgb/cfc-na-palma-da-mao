@@ -1,0 +1,15 @@
+CFC NA PALMA DA MÃO — V4
+
+1. Envie TODO o conteúdo desta pasta para a raiz do repositório.
+2. Não envie a pasta externa; index.html deve ficar na raiz.
+3. Aguarde o GitHub Pages publicar.
+4. Abra login.html?v=4 e use Ctrl+F5.
+
+AUDITORIA LOCAL REALIZADA
+- 911 referências locais (links, scripts, CSS e imagens) verificadas.
+- Nenhuma referência local quebrada encontrada.
+- Arquivos de autenticação reescritos com Firebase SDK modular 12.0.0.
+- Service Worker alterado para não armazenar HTML, JavaScript ou configuração Firebase.
+
+IMPORTANTE
+Se aparecer auth/invalid-api-key mesmo com esta versão, o código está lendo exatamente a chave mostrada no Firebase Console, mas a chave está sendo recusada pelos servidores Google. Nesse caso, é necessário gerar uma nova chave Web/API no projeto Firebase/Google Cloud e colá-la em firebase-config.js. Trocar senha ou usuário não corrige esse erro.
