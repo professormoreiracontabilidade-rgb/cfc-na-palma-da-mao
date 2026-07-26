@@ -56,8 +56,11 @@ btnRecuperar.addEventListener('click', async () => {
   try {
     await auth.sendPasswordResetEmail(email);
     mostrarMensagem('E-mail de recuperação enviado. Verifique também a caixa de spam.', 'sucesso');
-  } catch (erro) {
-    mostrarMensagem(traduzirErro(erro.code));
+ } catch (erro) {
+  console.log("Código do erro:", erro.code);
+  console.log("Mensagem:", erro.message);
+  mostrarMensagem(traduzirErro(erro.code));
+}
   } finally {
     btnRecuperar.disabled = false;
   }
