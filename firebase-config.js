@@ -1,8 +1,7 @@
 'use strict';
 
-// Configuração pública do Firebase — projeto CFC na Palma da Mão.
 const firebaseConfig = {
-  apiKey: 'AIzaSya-wspl20od5LstQ8oPHVwddw7_W2mjHn8',
+  apiKey: 'AIzaSyA-wspl20od5LstQ8oPHVwddw7_W2mjHn8',
   authDomain: 'cfc-na-palma-da-mao.firebaseapp.com',
   projectId: 'cfc-na-palma-da-mao',
   storageBucket: 'cfc-na-palma-da-mao.firebasestorage.app',
