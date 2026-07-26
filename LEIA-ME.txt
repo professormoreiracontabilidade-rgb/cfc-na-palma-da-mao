@@ -1,22 +1,15 @@
-CFC NA PALMA DA MÃO — LOGIN FIREBASE CORRIGIDO
+CFC NA PALMA DA MÃO — LOGIN FIREBASE FINAL V13
 
-Arquivos para substituir na raiz do repositório:
-- index.html
-- login.html
-- firebase-config.js
-- login.js
-- auth-guard.js
-- logout.js
-- manifest.json
-- service-worker.js
+1. Envie os 8 arquivos deste pacote para a RAIZ do repositório.
+2. Substitua os arquivos antigos com os mesmos nomes.
+3. Não renomeie nenhum arquivo.
+4. Aguarde o GitHub Pages atualizar.
+5. Abra primeiro: login.html?v=13
+6. Atualize com Ctrl+F5 e faça o login.
 
-IMPORTANTE:
-1. Envie/substitua todos os arquivos de uma só vez.
-2. Confirme que icon-192.png e icon-512.png continuam na raiz.
-3. No Firebase Authentication, o provedor E-mail/Senha deve estar ativado.
-4. O domínio professormoreiracontabilidade-rgb.github.io deve permanecer autorizado.
-5. Após publicar, aguarde o GitHub Pages atualizar e abra login.html com Ctrl+F5.
-6. Se ainda aparecer erro, a tela agora mostrará o código exato retornado pelo Firebase.
+CORREÇÃO PRINCIPAL:
+A apiKey anterior estava digitada como AIzaSyA...
+A chave exibida pelo Firebase é AIzaSya...
 
-Observação: as páginas internas (auditoria.html, direito.html etc.) ainda podem ser abertas diretamente por URL.
-Para protegê-las também, será necessário inserir os scripts do Firebase e auth-guard.js em cada página.
+Observação:
+Este pacote protege o index.html. Para proteger páginas internas acessadas por URL direta, será necessário adicionar os scripts Firebase + auth-guard em cada página interna.

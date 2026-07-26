@@ -1,18 +1,15 @@
 'use strict';
 
-const btnSair = document.getElementById('btnSair');
+document.getElementById('btnSair')?.addEventListener('click', async () => {
+  const botao = document.getElementById('btnSair');
+  botao.disabled = true;
+  botao.textContent = 'Saindo...';
 
-if (btnSair) {
-  btnSair.addEventListener('click', async () => {
-    btnSair.disabled = true;
-    btnSair.textContent = 'Saindo...';
-
-    try {
-      await firebase.auth().signOut();
-    } catch (erro) {
-      console.error('Erro ao sair:', erro);
-    } finally {
-      window.location.replace('./login.html');
-    }
-  });
-}
+  try {
+    await firebase.auth().signOut();
+  } catch (erro) {
+    console.error('Erro ao sair:', erro);
+  } finally {
+    window.location.replace('./login.html');
+  }
+});

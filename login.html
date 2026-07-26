@@ -4,25 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#003b8f">
-  <meta name="robots" content="noindex,nofollow">
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="icon-192.png">
+  <meta name="robots" content="noindex">
+  <link rel="manifest" href="manifest.json?v=13">
   <title>Entrar — CFC na Palma da Mão</title>
   <style>
-    *{box-sizing:border-box}
-    body{margin:0;min-height:100vh;padding:22px;display:grid;place-items:center;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(160deg,#061b35,#0c3d7d);color:#fff}
-    .card{width:min(430px,100%);background:#fff;color:#153458;border-radius:28px;padding:26px 22px;box-shadow:0 20px 50px rgba(0,0,0,.35)}
-    .brand{text-align:center;margin-bottom:22px}.brand img{width:82px;height:82px;border-radius:22px;box-shadow:0 8px 20px rgba(0,59,143,.25)}
-    h1{font-size:24px;margin:13px 0 5px;color:#003b8f}.brand p{margin:0;font-size:14px;color:#52677f;line-height:1.45}
-    label{display:block;font-size:13px;font-weight:bold;margin:15px 0 7px}
-    input{width:100%;border:2px solid #dbe4ee;border-radius:14px;padding:14px;font-size:16px;outline:none}
-    input:focus{border-color:#0057d9;box-shadow:0 0 0 3px rgba(0,87,217,.12)}
-    button{width:100%;border:0;border-radius:14px;padding:15px;font-size:16px;font-weight:bold;cursor:pointer}
-    .entrar{margin-top:19px;background:linear-gradient(135deg,#003b8f,#0064e6);color:#fff;box-shadow:0 8px 18px rgba(0,59,143,.25)}
-    button:disabled{opacity:.65;cursor:wait}.link{margin-top:12px;background:transparent;color:#003b8f;padding:10px}
-    .mensagem{display:none;margin-top:16px;padding:12px;border-radius:12px;font-size:14px;line-height:1.4;overflow-wrap:anywhere}
-    .erro{display:block;background:#ffe8eb;color:#9d1226}.sucesso{display:block;background:#e5f7ec;color:#17663a}
-    .nota{text-align:center;margin:14px 0 0;color:#6b7b8c;font-size:12px}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;padding:22px;display:grid;place-items:center;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(160deg,#061b35,#0c3d7d);color:#fff}.card{width:min(430px,100%);background:#fff;color:#153458;border-radius:28px;padding:26px 22px;box-shadow:0 20px 50px rgba(0,0,0,.35)}.brand{text-align:center;margin-bottom:22px}.brand img{width:82px;height:82px;border-radius:22px;box-shadow:0 8px 20px rgba(0,59,143,.25)}h1{font-size:24px;margin:13px 0 5px;color:#003b8f}.brand p{margin:0;font-size:14px;color:#52677f;line-height:1.45}label{display:block;font-size:13px;font-weight:bold;margin:15px 0 7px}input{width:100%;border:2px solid #dbe4ee;border-radius:14px;padding:14px;font-size:16px;outline:none}input:focus{border-color:#0057d9;box-shadow:0 0 0 3px rgba(0,87,217,.12)}button{width:100%;border:0;border-radius:14px;padding:15px;font-size:16px;font-weight:bold;cursor:pointer}.entrar{margin-top:19px;background:linear-gradient(135deg,#003b8f,#0064e6);color:#fff;box-shadow:0 8px 18px rgba(0,59,143,.25)}button:disabled{opacity:.65;cursor:wait}.link{margin-top:12px;background:transparent;color:#003b8f;padding:10px}.mensagem{display:none;margin-top:16px;padding:12px;border-radius:12px;font-size:14px;line-height:1.4}.erro{display:block;background:#ffe8eb;color:#9d1226}.sucesso{display:block;background:#e5f7ec;color:#17663a}.nota{text-align:center;margin:14px 0 0;color:#6b7b8c;font-size:12px}
   </style>
 </head>
 <body>
@@ -32,17 +18,13 @@
       <h1>CFC na Palma da Mão</h1>
       <p>Curso de Contabilidade Professor Moreira<br>Área exclusiva do aluno</p>
     </div>
-
     <form id="formLogin">
       <label for="email">E-mail</label>
       <input id="email" type="email" autocomplete="email" placeholder="seuemail@exemplo.com" required>
-
       <label for="senha">Senha</label>
       <input id="senha" type="password" autocomplete="current-password" placeholder="Digite sua senha" minlength="6" required>
-
       <button id="btnEntrar" class="entrar" type="submit">Entrar no aplicativo</button>
     </form>
-
     <button id="btnRecuperar" class="link" type="button">Esqueci minha senha</button>
     <div id="mensagem" class="mensagem" role="alert" aria-live="polite"></div>
     <p class="nota">O acesso é liberado pelo Professor Moreira.</p>
@@ -50,7 +32,7 @@
 
   <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
-  <script src="firebase-config.js?v=12"></script>
-  <script src="login.js?v=12"></script>
+  <script src="firebase-config.js?v=13"></script>
+  <script src="login.js?v=13"></script>
 </body>
 </html>

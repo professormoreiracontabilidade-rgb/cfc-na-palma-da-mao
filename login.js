@@ -20,35 +20,32 @@ function limparMensagem() {
 
 function traduzirErro(codigo) {
   const erros = {
+    'auth/invalid-api-key': 'A configuração do aplicativo está inválida. Atualize os arquivos do Firebase.',
     'auth/invalid-email': 'Digite um endereço de e-mail válido.',
     'auth/invalid-credential': 'E-mail ou senha incorretos.',
-    'auth/invalid-login-credentials': 'E-mail ou senha incorretos.',
     'auth/wrong-password': 'E-mail ou senha incorretos.',
     'auth/user-not-found': 'E-mail ou senha incorretos.',
     'auth/user-disabled': 'Este acesso está bloqueado. Entre em contato com o Professor Moreira.',
     'auth/too-many-requests': 'Muitas tentativas. Aguarde alguns minutos e tente novamente.',
     'auth/network-request-failed': 'Falha de conexão. Verifique sua internet.',
-    'auth/operation-not-allowed': 'O login por e-mail e senha não está habilitado no Firebase.',
-    'auth/configuration-not-found': 'A configuração de autenticação não foi encontrada no Firebase.',
-    'auth/api-key-not-valid.-please-pass-a-valid-api-key.': 'A chave do Firebase é inválida.',
     'auth/missing-password': 'Digite sua senha.',
-    'auth/missing-email': 'Digite seu e-mail.'
+    'auth/missing-email': 'Digite seu e-mail.',
+    'auth/operation-not-allowed': 'O login por e-mail e senha ainda não está habilitado no Firebase.'
   };
-
-  return erros[codigo] || `Não foi possível entrar. Código: ${codigo || 'erro desconhecido'}.`;
+  return erros[codigo] || `Não foi possível entrar. Código: ${codigo || 'desconhecido'}.`;
 }
 
-async function prepararAutenticacao() {
-  await auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-}
+auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch((erro) => {
+  console.error('Falha ao definir persistência:', erro);
+});
 
-auth.onAuthStateChanged(user => {
+auth.onAuthStateChanged((user) => {
   if (user) {
     window.location.replace('./index.html');
   }
 });
 
-form.addEventListener('submit', async event => {
+form.addEventListener('submit', async (event) => {
   event.preventDefault();
   limparMensagem();
 
@@ -60,7 +57,6 @@ form.addEventListener('submit', async event => {
     emailInput.focus();
     return;
   }
-
   if (!senha) {
     mostrarMensagem('Digite sua senha.');
     senhaInput.focus();
@@ -71,11 +67,10 @@ form.addEventListener('submit', async event => {
   btnEntrar.textContent = 'Verificando...';
 
   try {
-    await prepararAutenticacao();
     await auth.signInWithEmailAndPassword(email, senha);
     window.location.replace('./index.html');
   } catch (erro) {
-    console.error('Falha no login:', erro);
+    console.error('Erro no login:', erro.code, erro.message);
     mostrarMensagem(traduzirErro(erro.code));
   } finally {
     btnEntrar.disabled = false;
@@ -100,7 +95,7 @@ btnRecuperar.addEventListener('click', async () => {
     await auth.sendPasswordResetEmail(email);
     mostrarMensagem('E-mail de recuperação enviado. Verifique também a caixa de spam.', 'sucesso');
   } catch (erro) {
-    console.error('Falha na recuperação de senha:', erro);
+    console.error('Erro na recuperação:', erro.code, erro.message);
     mostrarMensagem(traduzirErro(erro.code));
   } finally {
     btnRecuperar.disabled = false;

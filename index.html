@@ -4,62 +4,89 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CFC na Palma da Mão</title>
-<link rel="manifest" href="manifest.json">
-<link rel="icon" href="icon-192.png">
+<link rel="manifest" href="manifest.json?v=13">
 <meta name="theme-color" content="#003b8f">
 <style>
-*{box-sizing:border-box}
-html:not(.usuario-autenticado) body{visibility:hidden}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#061b35,#0c2f5f);color:white}
-.app{max-width:430px;margin:auto;min-height:100vh;padding:14px}
-.header{background:linear-gradient(135deg,#001f4d,#003b8f,#0057d9);padding:24px 18px;border-radius:28px;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.32);margin-bottom:16px}
-.header h1{margin:0;font-size:24px}.header h2{margin:8px 0 0;font-size:15px;font-weight:normal}
-.usuario{margin-top:13px;font-size:12px;opacity:.92;overflow-wrap:anywhere}
-.sair{margin-top:12px;border:0;border-radius:12px;padding:10px 16px;background:#fff;color:#003b8f;font-weight:bold;cursor:pointer}
-.sair:disabled{opacity:.65}
-.secao{margin:18px 0 10px;font-size:14px;font-weight:bold}
-.grid-materias{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.materia{text-decoration:none;background:white;color:#003b8f;padding:12px 10px;border-radius:22px;min-height:138px;box-shadow:0 7px 18px rgba(0,0,0,.25);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
-.materia img{width:64px;height:64px;border-radius:18px;object-fit:cover;box-shadow:0 4px 10px rgba(0,0,0,.18);margin-bottom:9px}
-.icone-texto{width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center;margin-bottom:9px;font-size:35px;background:linear-gradient(135deg,#0f8f52,#22b573);box-shadow:0 4px 10px rgba(0,0,0,.18)}
-.materia strong{font-size:14px;line-height:1.15}.materia small{display:block;margin-top:5px;font-size:10.5px;color:#555;line-height:1.25}
-.footer{text-align:center;font-size:12px;margin-top:20px;padding-bottom:8px;font-weight:bold}
+*{box-sizing:border-box;}
+html:not(.usuario-autenticado) body{visibility:hidden;} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#061b35,#0c2f5f);color:white;}
+.app{max-width:430px;margin:auto;min-height:100vh;padding:14px;}
+.header{background:linear-gradient(135deg,#001f4d,#003b8f,#0057d9);padding:24px 18px;border-radius:28px;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.32);margin-bottom:16px;}
+.header h1{margin:0;font-size:24px;}
+.header h2{margin:8px 0 0;font-size:15px;font-weight:normal;}
+.secao{margin:18px 0 10px;font-size:14px;font-weight:bold;}
+.grid-materias{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.materia{text-decoration:none;background:white;color:#003b8f;padding:12px 10px;border-radius:22px;min-height:138px;box-shadow:0 7px 18px rgba(0,0,0,.25);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;}
+.materia img{width:64px;height:64px;border-radius:18px;object-fit:cover;box-shadow:0 4px 10px rgba(0,0,0,.18);margin-bottom:9px;}
+.icone-texto{width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center;margin-bottom:9px;font-size:35px;background:linear-gradient(135deg,#0f8f52,#22b573);box-shadow:0 4px 10px rgba(0,0,0,.18);}
+.materia strong{font-size:14px;line-height:1.15;}
+.materia small{display:block;margin-top:5px;font-size:10.5px;color:#555;line-height:1.25;}
+.em-breve::after{content:"EM BREVE";position:absolute;top:8px;right:-24px;background:#ffcc33;color:#17335a;font-size:9px;font-weight:bold;padding:4px 24px;transform:rotate(35deg);}
+.conta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 14px;padding:10px 12px;background:rgba(255,255,255,.12);border-radius:14px;font-size:12px}.sair{border:0;border-radius:10px;padding:8px 13px;background:#fff;color:#003b8f;font-weight:bold;cursor:pointer}.footer{text-align:center;font-size:12px;margin-top:20px;padding-bottom:8px;font-weight:bold;}
 </style>
 </head>
 <body>
 <div class="app">
-  <div class="header">
-    <h1>📱 CFC NA PALMA DA MÃO</h1>
-    <h2>Curso de Contabilidade Professor Moreira</h2>
-    <div class="usuario">Aluno: <span id="usuarioEmail">verificando...</span></div>
-    <button id="btnSair" class="sair" type="button">Sair</button>
-  </div>
-
-  <div class="secao">📚 Áreas de Estudo</div>
-  <div class="grid-materias">
-    <a class="materia" href="contabilidade-geral.html"><img src="contabilidade_geral.png" alt="Contabilidade Geral"><strong>Contabilidade Geral</strong><small>CPCs e demonstrações</small></a>
-    <a class="materia" href="contabilidade-custos.html"><img src="contabilidade_de_custos.png" alt="Contabilidade de Custos"><strong>Contabilidade de Custos</strong><small>Custeio e margem</small></a>
-    <a class="materia" href="contabilidade-publica.html"><img src="contabilidade_publica.png" alt="Contabilidade Pública"><strong>Contabilidade Pública</strong><small>PCASP e setor público</small></a>
-    <a class="materia" href="auditoria.html"><img src="auditoria.png" alt="Auditoria"><strong>Auditoria</strong><small>NBC TA</small></a>
-    <a class="materia" href="pericia.html"><img src="pericia_contabil.png" alt="Perícia Contábil"><strong>Perícia Contábil</strong><small>NBC TP 01</small></a>
-    <a class="materia" href="direito.html"><img src="direito.png" alt="Direito"><strong>Direito</strong><small>Direito para o CFC</small></a>
-    <a class="materia" href="etica.html"><img src="etica_contabil.png" alt="Ética Profissional"><strong>Ética Profissional</strong><small>Código de ética</small></a>
-    <a class="materia" href="reforma-tributaria/index.html"><div class="icone-texto" aria-hidden="true">🏛️</div><strong>Reforma Tributária</strong><small>IBS, CBS e Imposto Seletivo</small></a>
-  </div>
-
-  <div class="footer">Curso de Contabilidade Professor Moreira<br>CFC na Palma da Mão</div>
+<div class="header">
+  <h1>📱 CFC NA PALMA DA MÃO</h1>
+  <h2>Curso de Contabilidade Professor Moreira</h2>
 </div>
-
+<div class="conta"><span>👤 <span id="usuarioEmail">Aluno</span></span><button id="btnSair" class="sair" type="button">Sair</button></div>
+<div class="secao">📚 Áreas de Estudo</div>
+<div class="grid-materias">
+  <a class="materia" href="contabilidade-geral.html">
+    <img src="contabilidade_geral.png" alt="Contabilidade Geral">
+    <strong>Contabilidade Geral</strong>
+    <small>CPCs e demonstrações</small>
+  </a>
+  <a class="materia" href="contabilidade-custos.html">
+    <img src="contabilidade_de_custos.png" alt="Contabilidade de Custos">
+    <strong>Contabilidade de Custos</strong>
+    <small>Custeio e margem</small>
+  </a>
+  <a class="materia" href="contabilidade-publica.html">
+    <img src="contabilidade_publica.png" alt="Contabilidade Pública">
+    <strong>Contabilidade Pública</strong>
+    <small>PCASP e setor público</small>
+  </a>
+  <a class="materia" href="auditoria.html">
+    <img src="auditoria.png" alt="Auditoria">
+    <strong>Auditoria</strong>
+    <small>NBC TA</small>
+  </a>
+  <a class="materia" href="pericia.html">
+    <img src="pericia_contabil.png" alt="Perícia Contábil">
+    <strong>Perícia Contábil</strong>
+    <small>NBC TP 01</small>
+  </a>
+  <a class="materia" href="direito.html">
+    <img src="direito.png" alt="Direito">
+    <strong>Direito</strong>
+    <small>Direito para o CFC</small>
+  </a>
+ <a class="materia" href="etica.html">
+    <img src="etica_contabil.png" alt="Ética Profissional">
+    <strong>Ética Profissional</strong>
+    <small>Código de ética</small>
+  </a>
+  <a class="materia" href="reforma-tributaria/index.html">
+    <div class="icone-texto" aria-hidden="true">🏛️</div>
+    <strong>Reforma Tributária</strong>
+    <small>IBS, CBS e Imposto Seletivo</small>
+  </a>
+</div>
+<div class="footer">
+Curso de Contabilidade Professor Moreira<br>
+CFC na Palma da Mão
+</div>
+</div>
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
-<script src="firebase-config.js?v=12"></script>
-<script src="auth-guard.js?v=12"></script>
-<script src="logout.js?v=12"></script>
+<script src="firebase-config.js?v=13"></script>
+<script src="auth-guard.js?v=13"></script>
+<script src="logout.js?v=13"></script>
 <script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./service-worker.js?v=12').then(registro => registro.update()).catch(erro => console.error('Erro no Service Worker:', erro));
-  });
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./service-worker.js?v=13").then(reg => reg.update()).catch(console.error);
 }
 </script>
 </body>
