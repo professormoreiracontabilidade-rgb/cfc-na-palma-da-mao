@@ -1,21 +1,35 @@
+'use strict';
+
 const authGuard = firebase.auth();
-let autenticacaoConfirmada = false;
+let verificacaoConcluida = false;
 
-const limite = setTimeout(() => {
-  if (!autenticacaoConfirmada) window.location.replace('./login.html');
-}, 10000);
-
-authGuard.onAuthStateChanged(user => {
-  autenticacaoConfirmada = true;
-  clearTimeout(limite);
-  if (!user) {
+const tempoLimite = window.setTimeout(() => {
+  if (!verificacaoConcluida) {
     window.location.replace('./login.html');
-    return;
   }
-  document.documentElement.classList.add('usuario-autenticado');
-  const email = document.getElementById('usuarioEmail');
-  if (email) email.textContent = user.email || 'Aluno';
-}, () => {
-  clearTimeout(limite);
-  window.location.replace('./login.html');
-});
+}, 12000);
+
+authGuard.onAuthStateChanged(
+  user => {
+    verificacaoConcluida = true;
+    window.clearTimeout(tempoLimite);
+
+    if (!user) {
+      window.location.replace('./login.html');
+      return;
+    }
+
+    document.documentElement.classList.add('usuario-autenticado');
+
+    const emailElemento = document.getElementById('usuarioEmail');
+    if (emailElemento) {
+      emailElemento.textContent = user.email || 'Aluno';
+    }
+  },
+  erro => {
+    console.error('Erro ao verificar a autenticação:', erro);
+    verificacaoConcluida = true;
+    window.clearTimeout(tempoLimite);
+    window.location.replace('./login.html');
+  }
+);
