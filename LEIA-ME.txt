@@ -1,20 +1,24 @@
-CFC NA PALMA DA MÃO — CORREÇÃO V4.1
+CFC NA PALMA DA MÃO — PACOTE V5 DE AUTENTICAÇÃO
 
-Este pacote contém três arquivos:
-- firebase-config.js
-- login.js
-- login.html
+Substitua no repositório estes cinco arquivos:
 
-COMO INSTALAR
-1. Abra a pasta local do repositório cfc-na-palma-da-mao.
-2. Substitua os três arquivos existentes pelos arquivos deste pacote.
-3. No GitHub Desktop, faça um commit com o resumo:
-   Correção do login Firebase V4.1
-4. Clique em Push origin.
-5. Aguarde o GitHub Pages atualizar.
-6. Teste em janela anônima.
+1. login.html
+2. login.js
+3. firebase-config.js
+4. auth-guard.js
+5. logout.js
 
-IMPORTANTE
-- Esta versão usa somente o Firebase SDK modular.
-- Não usa o objeto global "firebase".
-- Isso elimina os erros "firebase is not defined" e "app/no-options".
+Depois:
+1. Abra o GitHub Desktop.
+2. Confirme que os cinco arquivos aparecem como alterados.
+3. Summary: Correção completa da autenticação V5
+4. Clique em Commit to main.
+5. Clique em Push origin.
+6. Aguarde 1 a 2 minutos.
+7. Teste em janela anônima.
+
+IMPORTANTE:
+- O login redireciona para ./index.html.
+- O logout redireciona para ./login.html.
+- Todos os arquivos usam a mesma versão modular do Firebase (10.12.5).
+- Não altere os nomes dos arquivos.
