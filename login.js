@@ -70,7 +70,7 @@ form.addEventListener("submit", async event => {
 
   try {
     await signInWithEmailAndPassword(auth, emailInput.value.trim(), senhaInput.value);
-    window.location.replace("./app.html");
+    window.location.replace("./index.html");
   } catch (erro) {
     console.error("Falha no login:", erro);
     mostrarMensagem(traduzirErro(erro.code));
