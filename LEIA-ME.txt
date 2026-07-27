@@ -1,15 +1,20 @@
-CFC NA PALMA DA MÃO — LOGIN FIREBASE FINAL V13
+CFC NA PALMA DA MÃO — CORREÇÃO V4.1
 
-1. Envie os 8 arquivos deste pacote para a RAIZ do repositório.
-2. Substitua os arquivos antigos com os mesmos nomes.
-3. Não renomeie nenhum arquivo.
-4. Aguarde o GitHub Pages atualizar.
-5. Abra primeiro: login.html?v=13
-6. Atualize com Ctrl+F5 e faça o login.
+Este pacote contém três arquivos:
+- firebase-config.js
+- login.js
+- login.html
 
-CORREÇÃO PRINCIPAL:
-A apiKey anterior estava digitada como AIzaSyA...
-A chave exibida pelo Firebase é AIzaSya...
+COMO INSTALAR
+1. Abra a pasta local do repositório cfc-na-palma-da-mao.
+2. Substitua os três arquivos existentes pelos arquivos deste pacote.
+3. No GitHub Desktop, faça um commit com o resumo:
+   Correção do login Firebase V4.1
+4. Clique em Push origin.
+5. Aguarde o GitHub Pages atualizar.
+6. Teste em janela anônima.
 
-Observação:
-Este pacote protege o index.html. Para proteger páginas internas acessadas por URL direta, será necessário adicionar os scripts Firebase + auth-guard em cada página interna.
+IMPORTANTE
+- Esta versão usa somente o Firebase SDK modular.
+- Não usa o objeto global "firebase".
+- Isso elimina os erros "firebase is not defined" e "app/no-options".

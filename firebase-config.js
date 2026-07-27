@@ -1,4 +1,6 @@
-const firebaseConfig = {
+// Configuração pública do Firebase — CFC na Palma da Mão Web V2.
+// Usada pelo login.js com o SDK modular do Firebase.
+export const firebaseConfig = {
   apiKey: "AIzaSyA-wspl2Ood5LstQ8oPHVwddw7_W2mjHn8",
   authDomain: "cfc-na-palma-da-mao.firebaseapp.com",
   projectId: "cfc-na-palma-da-mao",
@@ -7,8 +9,3 @@ const firebaseConfig = {
   appId: "1:45671139736:web:f16803f6627c5c00ff43ed",
   measurementId: "G-VE3H371RKN"
 };
-
-// Inicializa o Firebase apenas uma vez
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
