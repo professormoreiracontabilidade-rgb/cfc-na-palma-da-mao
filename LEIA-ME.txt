@@ -1,24 +1,26 @@
-CFC NA PALMA DA MÃO — PACOTE V5 DE AUTENTICAÇÃO
+CFC NA PALMA DA MÃO — RESTAURAÇÃO SEM FIREBASE
 
-Substitua no repositório estes cinco arquivos:
+Este pacote remove a exigência de login e devolve o acesso direto ao aplicativo.
 
-1. login.html
-2. login.js
-3. firebase-config.js
-4. auth-guard.js
-5. logout.js
+Substitua no repositório:
+- auth-guard.js
+- logout.js
+- firebase-config.js
+- login.js
+- login.html
 
 Depois:
 1. Abra o GitHub Desktop.
-2. Confirme que os cinco arquivos aparecem como alterados.
-3. Summary: Correção completa da autenticação V5
-4. Clique em Commit to main.
-5. Clique em Push origin.
-6. Aguarde 1 a 2 minutos.
-7. Teste em janela anônima.
+2. Faça o commit com a mensagem:
+   Remover Firebase e restaurar acesso direto
+3. Clique em Push origin.
+4. Aguarde a publicação do GitHub Pages.
+5. Teste em janela anônima.
 
-IMPORTANTE:
-- O login redireciona para ./index.html.
-- O logout redireciona para ./login.html.
-- Todos os arquivos usam a mesma versão modular do Firebase (10.12.5).
-- Não altere os nomes dos arquivos.
+RESULTADO:
+- index.html abre diretamente;
+- nenhuma sessão é exigida;
+- login.html encaminha para index.html;
+- referências antigas aos arquivos não causam erro 404.
+
+Este pacote não altera quizzes, imagens, links ou demais páginas.
