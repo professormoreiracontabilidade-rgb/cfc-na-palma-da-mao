@@ -1,6 +1,6 @@
 'use strict';
 
-const CACHE_NAME = 'cfc-na-palma-v14-imobilizado-20260805-intangivel-venda';
+const CACHE_NAME = 'cfc-na-palma-v15-impairment-links-20260805';
 const STATIC_FILES = [
   './manifest.json', './auditoria.png', './pericia_contabil.png',
   './contabilidade_publica.png', './contabilidade_de_custos.png',
