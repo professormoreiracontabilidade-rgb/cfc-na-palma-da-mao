@@ -1,6 +1,6 @@
 'use strict';
 
-const CACHE_NAME = 'cfc-na-palma-v12-introducao-20260804';
+const CACHE_NAME = 'cfc-na-palma-v13-circulante-20260805';
 const STATIC_FILES = [
   './manifest.json', './auditoria.png', './pericia_contabil.png',
   './contabilidade_publica.png', './contabilidade_de_custos.png',
