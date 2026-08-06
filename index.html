@@ -7,7 +7,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>CFC na Palma da Mão</title>
-<link rel="manifest" href="manifest.json?v=17">
+<link rel="manifest" href="manifest.json?v=18">
 <meta name="theme-color" content="#003b8f">
 <style>
 *{box-sizing:border-box;}
@@ -24,7 +24,7 @@ html:not(.usuario-autenticado) body{visibility:hidden;} body{margin:0;font-famil
 .materia strong{font-size:14px;line-height:1.15;}
 .materia small{display:block;margin-top:5px;font-size:10.5px;color:#555;line-height:1.25;}
 .em-breve::after{content:"EM BREVE";position:absolute;top:8px;right:-24px;background:#ffcc33;color:#17335a;font-size:9px;font-weight:bold;padding:4px 24px;transform:rotate(35deg);}
-.conta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 14px;padding:10px 12px;background:rgba(255,255,255,.12);border-radius:14px;font-size:12px}.sair{border:0;border-radius:10px;padding:8px 13px;background:#fff;color:#003b8f;font-weight:bold;cursor:pointer}.contador-acessos{margin:16px 0 4px;padding:13px 12px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:16px;text-align:center;box-shadow:0 5px 14px rgba(0,0,0,.18)}.contador-acessos strong{display:block;margin-bottom:8px;font-size:13px}.contador-acessos img{max-width:100%;height:28px}.contador-fallback{font-size:12px;color:#fff}.footer{text-align:center;font-size:12px;margin-top:20px;padding-bottom:8px;font-weight:bold;}
+.versao-app{margin:-4px auto 12px;padding:8px 12px;border-radius:999px;background:#e8f5e9;color:#146c2e;text-align:center;font-size:12px;font-weight:800;border:1px solid #a5d6a7}.contador-acessos{margin:14px 0;padding:14px 12px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.24);border-radius:16px;text-align:center}.contador-acessos strong{display:block;margin-bottom:8px}.contador-acessos img{height:28px;max-width:100%}.conta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 14px;padding:10px 12px;background:rgba(255,255,255,.12);border-radius:14px;font-size:12px}.sair{border:0;border-radius:10px;padding:8px 13px;background:#fff;color:#003b8f;font-weight:bold;cursor:pointer}.footer{text-align:center;font-size:12px;margin-top:20px;padding-bottom:8px;font-weight:bold;}
 </style>
 </head>
 <body>
@@ -33,6 +33,7 @@ html:not(.usuario-autenticado) body{visibility:hidden;} body{margin:0;font-famil
   <h1>📱 CFC NA PALMA DA MÃO</h1>
   <h2>Curso de Contabilidade Professor Moreira</h2>
 </div>
+<div class="versao-app">✅ ATUALIZADO — VERSÃO 18 • 06/08/2026</div>
 <div class="conta"><span>👤 <span id="usuarioEmail">Aluno</span></span><button id="btnSair" class="sair" type="button">Sair</button></div>
 <div class="secao">📚 Áreas de Estudo</div>
 <div class="grid-materias">
@@ -77,31 +78,30 @@ html:not(.usuario-autenticado) body{visibility:hidden;} body{margin:0;font-famil
     <small>IBS, CBS e Imposto Seletivo</small>
   </a>
 </div>
-<div class="contador-acessos" aria-label="Quantidade total de acessos ao aplicativo">
-  <strong>👥 Quantidade total de acessos</strong>
-  <img id="contadorAcessos" alt="Contador total de acessos" loading="eager">
-  <div id="contadorFallback" class="contador-fallback" hidden>Contador temporariamente indisponível</div>
+
+<div class="contador-acessos">
+  <strong>👥 QUANTIDADE TOTAL DE ACESSOS</strong>
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=professormoreiracontabilidade-rgb.cfc-na-palma-da-mao.total&left_text=ACESSOS&left_color=%23003b8f&right_color=%230f8f52&format=true" alt="Quantidade total de acessos ao aplicativo">
 </div>
 <div class="footer">
 Curso de Contabilidade Professor Moreira<br>
 CFC na Palma da Mão
 </div>
 </div>
-<script src="firebase-config.js?v=17"></script>
-<script src="auth-guard.js?v=17"></script>
-<script src="logout.js?v=17"></script>
+<script src="firebase-config.js?v=18"></script>
+<script src="auth-guard.js?v=18"></script>
+<script src="logout.js?v=18"></script>
 <script>
-const contador = document.getElementById("contadorAcessos");
-const contadorFallback = document.getElementById("contadorFallback");
-if (contador) {
-  contador.src = "https://visitor-badge.laobi.icu/badge?page_id=professormoreiracontabilidade-rgb.cfc-na-palma-da-mao.v17&left_text=ACESSOS&left_color=%23003b8f&right_color=%230f8f52&format=true&height=28&t=" + Date.now();
-  contador.onerror = () => { contador.hidden = true; if (contadorFallback) contadorFallback.hidden = false; };
-}
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("./service-worker.js?v=17", {updateViaCache: "none"})
-    .then(async reg => { await reg.update(); })
+  navigator.serviceWorker.register("./service-worker.js?v=18", {updateViaCache: "none"})
+    .then(reg => { reg.update(); })
     .catch(console.error);
 }
+window.addEventListener("load", () => {
+  if ("caches" in window) {
+    caches.keys().then(keys => Promise.all(keys.filter(k => !k.includes("v18")).map(k => caches.delete(k))));
+  }
+});
 </script>
 </body>
 </html>
